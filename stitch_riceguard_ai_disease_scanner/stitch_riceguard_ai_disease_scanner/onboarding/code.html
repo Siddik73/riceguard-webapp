@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e1e3de",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#bfc9c1",
+                      "surface-bright": "#f8faf5",
+                      "secondary-container": "#a0f4c8",
+                      "secondary": "#0e6c4a",
+                      "background": "#f8faf5",
+                      "tertiary-fixed": "#ffdfa0",
+                      "inverse-surface": "#2e312e",
+                      "inverse-on-surface": "#eff1ec",
+                      "tertiary": "#5d4300",
+                      "primary-container": "#2d6a4f",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#7a5a00",
+                      "on-primary-fixed": "#002114",
+                      "tertiary-fixed-dim": "#fbbc00",
+                      "secondary-fixed-dim": "#85d7ad",
+                      "surface-container-highest": "#e1e3de",
+                      "surface-container": "#ecefea",
+                      "on-background": "#191c1a",
+                      "on-tertiary-container": "#ffd47b",
+                      "on-surface-variant": "#404943",
+                      "primary-fixed-dim": "#95d4b3",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#b1f0ce",
+                      "on-primary-container": "#a8e7c5",
+                      "surface-container-high": "#e7e9e4",
+                      "outline": "#707973",
+                      "on-secondary-fixed": "#002113",
+                      "surface-tint": "#2c694e",
+                      "primary": "#0f5238",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container-low": "#f2f4ef",
+                      "on-error": "#ffffff",
+                      "surface": "#f8faf5",
+                      "on-tertiary-fixed-variant": "#5c4300",
+                      "on-tertiary-fixed": "#261a00",
+                      "on-primary-fixed-variant": "#0e5138",
+                      "inverse-primary": "#95d4b3",
+                      "surface-dim": "#d8dbd6",
+                      "secondary-fixed": "#a0f4c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1a",
+                      "on-secondary-container": "#19724f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "container-margin": "16px",
+                      "gutter": "16px",
+                      "unit": "8px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Noto Sans"],
+                      "label-sm": ["Noto Sans"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-slide {
+            scroll-snap-align: start;
+            flex: 0 0 100%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden">
+<!-- Top AppBar (from Shared Components) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-300 px-md py-xs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="language">language</span>
+            English
+        </button>
+</header>
+<!-- Main Content: Carousel -->
+<main class="flex-1 mt-16 flex flex-col items-center justify-center">
+<div class="carousel-container flex overflow-x-auto w-full h-full cursor-grab active:cursor-grabbing" id="carousel">
+<!-- Slide 1 -->
+<div class="carousel-slide flex flex-col items-center justify-center px-container-margin gap-xl">
+<div class="relative w-full max-w-[320px] aspect-square bg-surface-container rounded-xl overflow-hidden shadow-sm group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A close-up high-angle shot of a hand holding a modern smartphone over a vibrant green rice leaf in a sunlit field. The smartphone screen displays a camera interface focusing on a specific spot on the leaf. The lighting is bright and natural, reflecting a high-contrast corporate aesthetic for RiceGuard. The scene is clean, minimal, and conveys a reliable agricultural technology tool in a professional Bangladesh farming context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyw1xa0jqU8f2b3rFgVli2aro3dC-LH2vBGSf82Mvb05_tkwZDe8UW1ze_OIODiristZbuTorSx1mttIzR0Is1D6kJ8rvtcZwhRptMzRS-ohAxO-hZwud0oWB5UjItkc-BEuwzwf6lAr_t4RLi9FHzG0dRh2R6KJqaqhhp1VTLrIlGt8q-3gdZbiSKoPVqsRWO5NB0ashXD7M3Erj2585lsuMecYomrfoLKbpvZDig_e7GUA0YfwSzyYB_Xytf-u7uU5GHC8j0-fNy"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-[64px]" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+</div>
+<div class="text-center max-w-xs space-y-md">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-primary">Point your camera at the affected leaf.</h2>
+<p class="text-body-md text-on-surface-variant">ক্যামেরাটি আক্রান্ত ধানের পাতার দিকে ধরুন।</p>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="carousel-slide flex flex-col items-center justify-center px-container-margin gap-xl">
+<div class="relative w-full max-w-[320px] aspect-square bg-surface-container rounded-xl overflow-hidden shadow-sm group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/10"></div>
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist 3D visualization of a digital scanning process on a rice leaf. A translucent green scanning beam passes horizontally over the leaf's surface, highlighted by glowing AI data nodes and geometric precision lines. The background is a soft, out-of-focus laboratory or bright field setting. The overall mood is clinical, supportive, and technologically advanced, using the RiceGuard deep green color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBwVruBsK438_neI4kP3AnWwv2PRcNSpXaCSWHJNOkI8KCFgK_xPQZmQnJLLugHS6_Rxn6fIqGUieheUTzcx0SwXm-FkPFkyOC0q2gosM8pLXgSf4eDJWPqCGqVfLWa6tLbU8pieF3yCWzcq3Kd4MYIcdnELW6LpirTfqBVA9JTdNcst81axvw5KIbwCaSDT6qkgRkf2ZTzAA4lRrxCfEJy2kKrBUyK0rg4pSoCgODLgcarrCa5_uB3ypJ_QI4BDpedtZYn_NdD88y"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-32 h-32 border-4 border-primary-fixed-dim rounded-full animate-ping opacity-25"></div>
+</div>
+</div>
+<div class="text-center max-w-xs space-y-md">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-primary">Our AI identifies diseases in seconds.</h2>
+<p class="text-body-md text-on-surface-variant">আমাদের এআই কয়েক সেকেন্ডের মধ্যে রোগ শনাক্ত করে।</p>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="carousel-slide flex flex-col items-center justify-center px-container-margin gap-xl">
+<div class="relative w-full max-w-[320px] aspect-square bg-surface-container rounded-xl overflow-hidden shadow-sm group">
+<img class="w-full h-full object-cover" data-alt="A wide-angle, breathtaking view of a lush, healthy rice field in Bangladesh during golden hour. The sunlight casts a warm, confident glow over the endless rows of emerald-green crops. The sky is clear and pale blue. This image evokes success and reliability, mirroring the RiceGuard brand promise of saving crops through data science and modern agricultural tips." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJx7yHXGxYzV_5_6kWpzyyq4GR_ATS2SNkcHPG3ZZO3COrLamIiaPHHIqwA9YqohXAcYRT7zzEPt5lm1IvRygUuJrVtiVusIb5MR0c6LeY0nYPFZnD4T7e9-I38iqY2_iDrs5PPIfg5fWTZG_NXOSAI4hsG3r9sfnFF1Uxz5WgaJ4Yf06wPduDRIsXl7K2vFfbMguMPfYgEo--bFXt6UGXk4AxFbc58V1Ck9zX8wkJY6go2WL6eTqg8_TSVzlxlmLqL4MVWjqdKx4w"/>
+</div>
+<div class="text-center max-w-xs space-y-md">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-primary">Get treatment tips to save your crop.</h2>
+<p class="text-body-md text-on-surface-variant">আপনার ফসল বাঁচাতে কার্যকরী প্রতিকার পান।</p>
+<div class="pt-lg">
+<button class="w-full bg-primary-container text-on-primary-container hover:opacity-90 active:scale-95 transition-all duration-300 h-12 rounded-lg font-label-md text-label-md flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span>Start Scan | শুরু করুন</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination & Navigation Footer -->
+<div class="py-xl flex flex-col items-center gap-md">
+<!-- Pagination Dots -->
+<div class="flex gap-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container transition-all duration-300" id="dot-0"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant transition-all duration-300" id="dot-1"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant transition-all duration-300" id="dot-2"></div>
+</div>
+</div>
+</main>
+<!-- Interactive script for carousel sync -->
+<script>
+        const carousel = document.getElementById('carousel');
+        const dots = [
+            document.getElementById('dot-0'),
+            document.getElementById('dot-1'),
+            document.getElementById('dot-2')
+        ];
+
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const width = carousel.offsetWidth;
+            const activeIndex = Math.round(scrollLeft / width);
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.remove('bg-outline-variant', 'w-2.5');
+                    dot.classList.add('bg-primary-container', 'w-6');
+                } else {
+                    dot.classList.remove('bg-primary-container', 'w-6');
+                    dot.classList.add('bg-outline-variant', 'w-2.5');
+                }
+            });
+        });
+
+        // Initialize first dot
+        dots[0].classList.add('w-6');
+    </script>
+<!-- Material Icons class initialization -->
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</body></html>

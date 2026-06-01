@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#19724f",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "surface-container-highest": "#c1ecd4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#b8e4cc",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#95d4b3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#e8fff0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#a8e7c5",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "surface-variant": "#c1ecd4",
+                        "background": "#e8fff0",
+                        "outline-variant": "#bfc9c1",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-container-low": "#d1fee5",
+                        "primary-container": "#2d6a4f",
+                        "on-tertiary-fixed": "#2f1400",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#cffbe2",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container": "#ccf8df",
+                        "inverse-surface": "#0e3727",
+                        "tertiary": "#713900",
+                        "outline": "#707973",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#002114",
+                        "on-surface-variant": "#404943",
+                        "tertiary-fixed": "#ffdcc4",
+                        "secondary": "#0e6c4a",
+                        "surface-bright": "#e8fff0",
+                        "tertiary-container": "#8f4f14",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2c694e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#002114",
+                        "primary": "#0f5238",
+                        "secondary-fixed": "#a0f4c8",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "surface-container-high": "#c6f2da",
+                        "on-tertiary-container": "#ffd1b1",
+                        "primary-fixed-dim": "#95d4b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "8px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-tablet": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Noto Sans Bengali"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Noto Sans Bengali"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .active-dot {
+            width: 24px;
+            background-color: #2D6A4F;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden h-screen flex flex-col">
+<!-- Top App Bar (Modified for Onboarding) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="potted_plant">potted_plant</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</span>
+</div>
+<button class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-highest transition-colors px-3 py-1 rounded-full active:scale-95 duration-100">
+            Skip / বাদ দিন
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-16 pb-20 relative overflow-hidden">
+<div class="carousel-track h-full" id="carousel">
+<!-- Slide 1: Identification -->
+<section class="carousel-slide px-margin-mobile flex flex-col items-center justify-center text-center">
+<div class="w-full max-w-[320px] aspect-square mb-8 rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A detailed digital illustration of a lush green rice paddy field at dawn. A smartphone is positioned in the foreground, displaying a scanning interface that highlights a specific rice leaf. The lighting is soft and golden, creating a hopeful and expert agricultural atmosphere. The color palette emphasizes verdant greens and earthy tones, maintaining a modern and trustworthy corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEKVnS3asqDS5QNr2qfdgz83Zb92YyOgDg4SxjdmaUFrWkRe_5KdyiUdxml7SfL8zPtF8sgq1EWy9dND8JroHeV1OJYkjvUneJ_VV9vzGmkTOq9bij6kBiaf8owxm98Kks-V9H91WJJIoJZxuc1JaNB5sL-WxV8iLdxteV3ww7tK5TMKB-uSI0r2-dieGTgGGsLnLcT_cgXJCqT1ATVKnb-lB1Sxv5YdFLjjZTdr7JRd-8-PiS8Pxz8jPXWX1NLH6MatGJ_uEy0Bo"/>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-2">Identify Diseases</h1>
+<h2 class="text-label-md font-label-md text-secondary mb-4">রোগ সনাক্ত করুন</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xs">
+                    RiceGuard uses AI to detect 15+ common rice plant diseases instantly from a single photo.
+                </p>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-2">
+                    রাইসগার্ড এআই ব্যবহার করে একটি মাত্র ছবি থেকে ১৫টিরও বেশি সাধারণ ধানের রোগ তাৎক্ষণিকভাবে শনাক্ত করে।
+                </p>
+</section>
+<!-- Slide 2: Photography Guide -->
+<section class="carousel-slide px-margin-mobile flex flex-col items-center justify-center text-center">
+<div class="w-full max-w-[320px] aspect-square mb-8 rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A high-quality close-up photograph of a human hand holding a single rice leaf against a neutral, soft-focus background. The leaf is perfectly in focus, showing intricate vein details and a small brown spot. Sunlight is bright and clear, illustrating the ideal conditions for taking a diagnostic photo. The image conveys precision and care, following the digital agronomy brand guidelines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEximjSfGVr7nwhDDKIePy7nKCLxY-4j8gUm-BOVhVN4HmMXkzTsCkW7bPtoezrRGRBLLramwdK-vKXbb5NDdihawOU-zTKQg9f7qjzx2PLQwI6zXBuxYVQddmxJXbsTi2lJCspTr9uztRHwu5qpg01gP1iEuGdKwe5pnHOpsxTTyEOs9jP5U37tW1J7cPIFUa20LJlsYKGpUukfmqsChMxmAuG2tS-SCaTR_l70XhFzlMEVptScnIk0u03ZczpWKUy05oc_xQ_d4"/>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-2">Take Clear Photos</h1>
+<h2 class="text-label-md font-label-md text-secondary mb-4">স্পষ্ট ছবি তুলুন</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xs">
+                    Ensure good lighting and focus directly on the affected area for high-accuracy results.
+                </p>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-2">
+                    সঠিক ফলাফলের জন্য পর্যাপ্ত আলো নিশ্চিত করুন এবং আক্রান্ত অংশের ওপর সরাসরি ফোকাস করুন।
+                </p>
+</section>
+<!-- Slide 3: CTA -->
+<section class="carousel-slide px-margin-mobile flex flex-col items-center justify-center text-center">
+<div class="w-full max-w-[320px] aspect-square mb-8 rounded-xl overflow-hidden shadow-sm bg-surface-container flex items-center justify-center">
+<div class="p-8 bg-primary-container text-on-primary rounded-full animate-pulse">
+<span class="material-symbols-outlined text-[64px]" data-icon="document_scanner">document_scanner</span>
+</div>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary mb-2">Save Your Crop</h1>
+<h2 class="text-label-md font-label-md text-secondary mb-4">আপনার ফসল রক্ষা করুন</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xs mb-8">
+                    Get expert advice and treatment recommendations to protect your yield.
+                </p>
+<button class="w-full max-w-xs h-[56px] bg-primary-container text-on-primary font-bold rounded-lg shadow-md active:scale-95 transition-transform flex items-center justify-center gap-3" onclick="window.location.reload()">
+<span class="text-body-lg">Start Scan / স্ক্যান শুরু করুন</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+</div>
+<!-- Carousel Indicators -->
+<div class="absolute bottom-8 left-0 w-full flex justify-center gap-2">
+<div class="indicator h-2 w-2 rounded-full bg-outline-variant active-dot transition-all duration-300"></div>
+<div class="indicator h-2 w-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+<div class="indicator h-2 w-2 rounded-full bg-outline-variant transition-all duration-300"></div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Suppressed/Inactive state for Onboarding) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant opacity-60 pointer-events-none">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined text-sm" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined text-sm" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined text-sm" data-icon="library_books">library_books</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1">
+<span class="material-symbols-outlined text-sm" data-icon="account_circle">account_circle</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        const carousel = document.getElementById('carousel');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        // Micro-interaction: Swipe logic (simulated with clicks for this demo)
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            indicators.forEach((ind, i) => {
+                if(i === currentSlide) {
+                    ind.classList.add('active-dot');
+                    ind.classList.remove('w-2');
+                    ind.classList.add('w-6');
+                } else {
+                    ind.classList.remove('active-dot');
+                    ind.classList.remove('w-6');
+                    ind.classList.add('w-2');
+                }
+            });
+        }
+
+        // Auto-advance for onboarding flow demo
+        let autoPlay = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+
+        // Simple manual control through clicking the indicators
+        indicators.forEach((ind, index) => {
+            ind.addEventListener('click', () => {
+                clearInterval(autoPlay);
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Basic swipe detection
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        carousel.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            if (touchendX < touchstartX - 50) {
+                if(currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    clearInterval(autoPlay);
+                    updateCarousel();
+                }
+            }
+            if (touchendX > touchstartX + 50) {
+                if(currentSlide > 0) {
+                    currentSlide--;
+                    clearInterval(autoPlay);
+                    updateCarousel();
+                }
+            }
+        }
+    </script>
+</body></html>

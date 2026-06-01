@@ -1,0 +1,46 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model FarmerScan {
+  id         String   @id @default(uuid())
+  disease    String
+  nameBn     String
+  confidence Float
+  severity   String   // LOW, MEDIUM, HIGH
+  imagePath  String
+  fieldName  String   @default("General Field")
+  createdAt  DateTime @default(now())
+}
+
+model DiseaseLibrary {
+  id             String   @id @default(uuid())
+  slug           String   @unique
+  name           String
+  nameBn         String
+  scientificName String
+  severity       String   // LOW, MEDIUM, HIGH
+  description    String
+  descriptionBn  String
+  symptoms       String   // JSON string or comma-separated symptoms
+  symptomsBn     String
+  treatment      String   // JSON string or comma-separated treatments
+  treatmentBn    String
+  prevention     String   // JSON string or comma-separated preventions
+  preventionBn   String
+}
+
+model ModelVersion {
+  id           String   @id @default(uuid())
+  name         String
+  version      String   @unique
+  status       String   // ACTIVE, TESTING, DEPRECATED
+  accuracy     Float
+  trafficSplit Int      // percentage, e.g. 90
+  createdAt    DateTime @default(now())
+}

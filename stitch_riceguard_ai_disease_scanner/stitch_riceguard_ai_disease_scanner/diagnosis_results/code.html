@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Scan Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e3de",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bfc9c1",
+                    "surface-bright": "#f8faf5",
+                    "secondary-container": "#a0f4c8",
+                    "secondary": "#0e6c4a",
+                    "background": "#f8faf5",
+                    "tertiary-fixed": "#ffdfa0",
+                    "inverse-surface": "#2e312e",
+                    "inverse-on-surface": "#eff1ec",
+                    "tertiary": "#5d4300",
+                    "primary-container": "#2d6a4f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#7a5a00",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-fixed-dim": "#fbbc00",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "surface-container-highest": "#e1e3de",
+                    "surface-container": "#ecefea",
+                    "on-background": "#191c1a",
+                    "on-tertiary-container": "#ffd47b",
+                    "on-surface-variant": "#404943",
+                    "primary-fixed-dim": "#95d4b3",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#b1f0ce",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-high": "#e7e9e4",
+                    "outline": "#707973",
+                    "on-secondary-fixed": "#002113",
+                    "surface-tint": "#2c694e",
+                    "primary": "#0f5238",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container-low": "#f2f4ef",
+                    "on-error": "#ffffff",
+                    "surface": "#f8faf5",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "inverse-primary": "#95d4b3",
+                    "surface-dim": "#d8dbd6",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1a",
+                    "on-secondary-container": "#19724f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-margin": "16px",
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .heatmap-overlay {
+            background: radial-gradient(circle at 30% 40%, rgba(186, 26, 26, 0.4) 0%, transparent 20%),
+                        radial-gradient(circle at 70% 60%, rgba(186, 26, 26, 0.4) 0%, transparent 25%),
+                        radial-gradient(circle at 50% 30%, rgba(186, 26, 26, 0.4) 0%, transparent 15%);
+        }
+        @keyframes progress-animation {
+            from { stroke-dashoffset: 251.2; }
+            to { stroke-dashoffset: 20.1; } /* 92% of 251.2 */
+        }
+        .animate-progress {
+            animation: progress-animation 1.5s ease-out forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</span>
+</div>
+<button class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low px-sm py-xs rounded-lg transition-colors">
+            English
+        </button>
+</header>
+<main class="pt-16 max-w-md mx-auto">
+<!-- Top Half: Scan Image & Heatmap -->
+<section class="relative h-[397px] w-full overflow-hidden">
+<img alt="Close up of rice plant" class="w-full h-full object-cover" data-alt="A detailed macro photograph of a rice leaf infected with brown spot disease, showing small dark circular lesions with yellow halos. The lighting is bright and natural, simulating direct sunlight in a lush green paddy field. The image is crisp and professional, emphasizing diagnostic clarity within a high-contrast modern agricultural app interface. The overall atmosphere is clinical and analytical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwwoeGUsOBEb01E7-o8WayfGNGWIxC2DzlJHbUvk1GUOJM7CsRJWDPjhfL8SdGJjZbpMFM-abWRsDJPaW-rJk14L7F6djUszKrqNis0NlUbqP7AJzLE-BBVGPAOw4M8tz-YsH0At82lvXDEd0znOs5toYZaZ8lfkvqQ37Flx74FxCLTbY9qzKlqjAsJdVVKVz5JsvHUWdVKev-YS__rohpooDV5tg9NBvPp0b-VkYPEtR3ZszwDaNmZCliva62K0hlwLid8teDWl6m"/>
+<div class="absolute inset-0 heatmap-overlay mix-blend-multiply"></div>
+<div class="absolute bottom-4 left-4 bg-black/40 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="visibility">visibility</span>
+                AI Analysis Active
+            </div>
+</section>
+<!-- Bottom Half: Result Card -->
+<div class="px-container-margin -mt-8 relative z-10">
+<section class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant/20">
+<!-- Header Info -->
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background mb-xs">Brown Spot</h1>
+<p class="text-body-md text-on-surface-variant font-medium">বাদামী দাগ রোগ</p>
+</div>
+<div class="relative w-16 h-16">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary animate-progress" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-width="4" style="stroke-dasharray: 251.2; stroke-linecap: round;"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-label-sm font-bold text-primary">92%</span>
+</div>
+</div>
+</div>
+<!-- Severity Badge -->
+<div class="mb-lg">
+<span class="inline-flex items-center gap-xs bg-error text-on-primary px-md py-xs rounded-lg text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+                        High Severity
+                    </span>
+</div>
+<!-- Treatment Steps (Accordion) -->
+<div class="space-y-sm">
+<details class="group border border-outline-variant rounded-xl overflow-hidden" open="">
+<summary class="flex justify-between items-center p-md cursor-pointer bg-surface-container hover:bg-surface-container-high transition-colors list-none">
+<span class="text-label-md font-bold flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="healing">healing</span>
+                                Treatment Steps
+                            </span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant">
+<ul class="space-y-md">
+<li class="flex gap-sm">
+<span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+<p class="text-body-md">Ensure clean water management. Avoid water stress or over-flooding.</p>
+</li>
+<li class="flex gap-sm">
+<span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+<p class="text-body-md">Apply Potash (K) fertilizer to improve plant resistance.</p>
+</li>
+</ul>
+</div>
+</details>
+<details class="group border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-md cursor-pointer bg-surface-container hover:bg-surface-container-high transition-colors list-none">
+<span class="text-label-md font-bold flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+                                Prevention Tips
+                            </span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant">
+<p class="text-body-md">Use certified disease-free seeds and ensure proper spacing between plants for ventilation.</p>
+</div>
+</details>
+</div>
+<!-- Action Buttons (Stacked) -->
+<div class="mt-xl flex flex-col gap-sm">
+<button class="w-full h-12 bg-primary-container text-on-primary-container font-bold rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                        Save to History
+                    </button>
+<button class="w-full h-12 border-2 border-primary text-primary font-bold rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                        Share Result
+                    </button>
+<button class="w-full h-12 border-2 border-primary text-primary font-bold rounded-lg flex items-center justify-center gap-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="psychiatry">psychiatry</span>
+                        Ask Expert
+                    </button>
+<button class="w-full h-12 text-on-surface-variant font-bold rounded-lg flex items-center justify-center gap-sm hover:bg-surface-variant/20 active:scale-95 transition-all mt-sm">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                        Scan Again
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface px-xs shadow-[0px_-2px_4px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="book_2">book_2</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for the progress circle animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const circle = document.querySelector('.animate-progress');
+            if (circle) {
+                circle.style.strokeDashoffset = '20.1';
+            }
+        });
+    </script>
+</body></html>

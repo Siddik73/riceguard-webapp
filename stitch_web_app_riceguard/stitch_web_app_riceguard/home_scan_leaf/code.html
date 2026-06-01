@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Digital Agronomy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#19724f",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "surface-container-highest": "#c1ecd4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#b8e4cc",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#95d4b3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#e8fff0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#a8e7c5",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "surface-variant": "#c1ecd4",
+                        "background": "#e8fff0",
+                        "outline-variant": "#bfc9c1",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-container-low": "#d1fee5",
+                        "primary-container": "#2d6a4f",
+                        "on-tertiary-fixed": "#2f1400",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#cffbe2",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container": "#ccf8df",
+                        "inverse-surface": "#0e3727",
+                        "tertiary": "#713900",
+                        "outline": "#707973",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#002114",
+                        "on-surface-variant": "#404943",
+                        "tertiary-fixed": "#ffdcc4",
+                        "secondary": "#0e6c4a",
+                        "surface-bright": "#e8fff0",
+                        "tertiary-container": "#8f4f14",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2c694e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#002114",
+                        "primary": "#0f5238",
+                        "secondary-fixed": "#a0f4c8",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "surface-container-high": "#c6f2da",
+                        "on-tertiary-container": "#ffd1b1",
+                        "primary-fixed-dim": "#95d4b3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-tablet": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Noto Sans Bengali"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Noto Sans Bengali"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .pulsing-border {
+            animation: pulse-border 2s infinite ease-in-out;
+        }
+        @keyframes pulse-border {
+            0% { border-color: #74C69D; box-shadow: 0 0 0 0 rgba(116, 198, 157, 0.4); }
+            70% { border-color: #2D6A4F; box-shadow: 0 0 0 15px rgba(116, 198, 157, 0); }
+            100% { border-color: #74C69D; box-shadow: 0 0 0 0 rgba(116, 198, 157, 0); }
+        }
+        .tap-highlight-transparent { -webkit-tap-highlight-color: transparent; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F8FAF5] font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-inverse-surface shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-headline-md" data-icon="potted_plant">potted_plant</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">RiceGuard</h1>
+</div>
+<button class="px-3 py-1 border-2 border-outline-variant rounded-xl text-label-md font-label-md text-primary hover:bg-surface-container-highest transition-colors active:scale-95 duration-100">
+            EN/BN
+        </button>
+</header>
+<!-- Main Content Container -->
+<main class="flex-grow pt-20 pb-32 px-margin-mobile md:px-margin-tablet max-w-[720px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-xl text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-xs">
+                Take a photo. Know the disease. Save your crop.
+            </h2>
+<p class="font-label-md text-label-md text-on-surface-variant">
+                একটি ছবি নিন। রোগটি জানুন। আপনার ফসল বাঁচান।
+            </p>
+</section>
+<!-- Pulsing Upload Zone -->
+<section class="mb-xl">
+<div class="relative pulsing-border border-4 border-dashed border-secondary rounded-xl bg-surface-container-low aspect-square flex flex-col items-center justify-center cursor-pointer tap-highlight-transparent active:scale-[0.98] transition-transform duration-200 group overflow-hidden shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" data-alt="A lush green rice paddy field in Southeast Asia during a bright, sunny afternoon. The lighting is high-contrast and natural, emphasizing the vibrant emerald green of the rice plants against a soft white sky. The overall aesthetic is professional, expert, and grounded in digital agronomy, utilizing a clean and high-contrast color palette of deep greens and soft neutrals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgGxD8JyDGVvua9493tvaYcFAhXMNSnRejqIkA96OyuAUKujSavBJNaMlJU8NpGqLaIINZmYZpj9ep0F72XpMz2XnIjvJVBYjFiaAM5p2A56EdFaGnQJcfONpbjh_uSxBvcvrBlDM0M40hBupu0TffCKY_MtnYjrqcG_Abtz8O8Ht1KkfHzo_QaBmPqxmQVMkM747mLvdH-MpAKUdA_tAiHEbci3ZbbGfbHFS6C37JxPOKmnnauEpR-Ut-CSV0gmNKUrUiMdoLfz0"/>
+<div class="z-10 flex flex-col items-center gap-md text-center p-lg">
+<div class="bg-primary-container p-lg rounded-full shadow-lg">
+<span class="material-symbols-outlined text-on-primary text-5xl" data-icon="leafy_green">energy_savings_leaf</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Start Camera Scan</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">ক্যামেরা স্ক্যান শুরু করুন</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Access Buttons (Bento-style Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Scan History -->
+<button class="flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl shadow-sm hover:bg-surface-container-high transition-colors text-left active:scale-95 duration-150">
+<div class="bg-secondary-container p-sm rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="history">history</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">Scan History</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">স্ক্যান ইতিহাস</div>
+</div>
+</button>
+<!-- Disease Library -->
+<button class="flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl shadow-sm hover:bg-surface-container-high transition-colors text-left active:scale-95 duration-150">
+<div class="bg-secondary-container p-sm rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="library_books">library_books</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">Disease Library</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">রোগের লাইব্রেরি</div>
+</div>
+</button>
+<!-- Community Forum (Full Width on Mobile) -->
+<button class="md:col-span-2 flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl shadow-sm hover:bg-surface-container-high transition-colors text-left active:scale-95 duration-150">
+<div class="bg-secondary-container p-sm rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="forum">forum</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">Community Forum</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">কমিউনিটি ফোরাম</div>
+</div>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-inverse-surface rounded-t-xl shadow-lg border-t border-outline-variant dark:border-outline">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-container text-on-secondary-container dark:text-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm-mobile">Home</span>
+</a>
+<!-- Scan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-dim active:scale-90 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm-mobile">Scan</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-dim active:scale-90 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm-mobile">History</span>
+</a>
+<!-- Library -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-dim active:scale-90 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="text-label-sm font-label-sm-mobile">Library</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-dim active:scale-90 transition-transform duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-label-sm font-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for language switch feedback
+        const langBtn = document.querySelector('header button');
+        langBtn.addEventListener('click', () => {
+            const current = langBtn.innerText;
+            langBtn.innerText = current === 'EN/BN' ? 'বাং/EN' : 'EN/BN';
+        });
+
+        // Simple haptic-like animation for the scan zone
+        const scanZone = document.querySelector('.pulsing-border');
+        scanZone.addEventListener('mousedown', () => {
+            scanZone.style.transform = 'scale(0.98)';
+        });
+        scanZone.addEventListener('mouseup', () => {
+            scanZone.style.transform = 'scale(1)';
+        });
+    </script>
+</body></html>

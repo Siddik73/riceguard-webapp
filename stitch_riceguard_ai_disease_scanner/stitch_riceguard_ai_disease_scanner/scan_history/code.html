@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e1e3de;
+            z-index: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            .timeline-line::before {
+                background: #404943;
+            }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e1e3de",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#bfc9c1",
+                      "surface-bright": "#f8faf5",
+                      "secondary-container": "#a0f4c8",
+                      "secondary": "#0e6c4a",
+                      "background": "#f8faf5",
+                      "tertiary-fixed": "#ffdfa0",
+                      "inverse-surface": "#2e312e",
+                      "inverse-on-surface": "#eff1ec",
+                      "tertiary": "#5d4300",
+                      "primary-container": "#2d6a4f",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#7a5a00",
+                      "on-primary-fixed": "#002114",
+                      "tertiary-fixed-dim": "#fbbc00",
+                      "secondary-fixed-dim": "#85d7ad",
+                      "surface-container-highest": "#e1e3de",
+                      "surface-container": "#ecefea",
+                      "on-background": "#191c1a",
+                      "on-tertiary-container": "#ffd47b",
+                      "on-surface-variant": "#404943",
+                      "primary-fixed-dim": "#95d4b3",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#b1f0ce",
+                      "on-primary-container": "#a8e7c5",
+                      "surface-container-high": "#e7e9e4",
+                      "outline": "#707973",
+                      "on-secondary-fixed": "#002113",
+                      "surface-tint": "#2c694e",
+                      "primary": "#0f5238",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container-low": "#f2f4ef",
+                      "on-error": "#ffffff",
+                      "surface": "#f8faf5",
+                      "on-tertiary-fixed-variant": "#5c4300",
+                      "on-tertiary-fixed": "#261a00",
+                      "on-primary-fixed-variant": "#0e5138",
+                      "inverse-primary": "#95d4b3",
+                      "surface-dim": "#d8dbd6",
+                      "secondary-fixed": "#a0f4c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1a",
+                      "on-secondary-container": "#19724f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "container-margin": "16px",
+                      "gutter": "16px",
+                      "unit": "8px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Noto Sans"],
+                      "label-sm": ["Noto Sans"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary text-headline-md">agriculture</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="px-md py-xs rounded-full border-2 border-primary text-primary font-label-md hover:bg-surface-container-low transition-colors duration-300">
+            English
+        </button>
+</header>
+<main class="pt-24 pb-24 px-container-margin max-w-lg mx-auto">
+<!-- Monthly Scan Volume Chart -->
+<section class="mb-xl bg-surface-container-lowest p-md rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h2 class="text-headline-md font-headline-md text-on-surface">Monthly Scan Volume</h2>
+<span class="text-label-sm font-label-sm text-outline">Oct 2023</span>
+</div>
+<div class="flex items-end justify-between h-24 gap-sm px-xs">
+<!-- Bar 1 -->
+<div class="flex-1 flex flex-col items-center gap-xs">
+<div class="w-full bg-secondary-container rounded-t-lg transition-all duration-500 hover:bg-primary" style="height: 40%"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">W1</span>
+</div>
+<!-- Bar 2 -->
+<div class="flex-1 flex flex-col items-center gap-xs">
+<div class="w-full bg-secondary-container rounded-t-lg transition-all duration-500 hover:bg-primary" style="height: 65%"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">W2</span>
+</div>
+<!-- Bar 3 -->
+<div class="flex-1 flex flex-col items-center gap-xs">
+<div class="w-full bg-primary rounded-t-lg transition-all duration-500" style="height: 90%"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">W3</span>
+</div>
+<!-- Bar 4 -->
+<div class="flex-1 flex flex-col items-center gap-xs">
+<div class="w-full bg-secondary-container rounded-t-lg transition-all duration-500 hover:bg-primary" style="height: 55%"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">W4</span>
+</div>
+</div>
+</section>
+<!-- Filter Chips -->
+<div class="flex gap-sm mb-lg overflow-x-auto hide-scrollbar pb-xs">
+<button class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-full font-label-md shadow-sm whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                Date
+            </button>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-high text-on-surface-variant rounded-full font-label-md hover:bg-surface-variant transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">pest_control</span>
+                Disease
+            </button>
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-high text-on-surface-variant rounded-full font-label-md hover:bg-surface-variant transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+                Severity
+            </button>
+</div>
+<!-- Vertical Timeline -->
+<div class="relative timeline-line space-y-lg">
+<!-- Timeline Item 1 -->
+<div class="relative flex gap-md items-start group">
+<div class="z-10 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-md shrink-0">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 hover:shadow-md transition-shadow duration-300">
+<div class="flex gap-md">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-variant" data-alt="A close-up macro photograph of a rice plant leaf affected by brown spot disease, showing characteristic circular necrotic lesions. The lighting is bright and clinical, emphasizing the diagnostic details against a soft, blurred background of healthy green foliage. The aesthetic is professional and agricultural-tech focused, using high-contrast natural tones of green and earthy browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1upwwmS_wJk60bXQRY9XslxgpxDB6o87v15JRXcJapenF7ItyNjOTHZoAMwhWBB1Y7YGv6joF7PgzXeSk3W1_9FuWsMeg7LDONOA9Bfa5c9ftKOqOxMnZ_YsU_jdA2--LVAbUX3Pb-_FdIEkn3E0PNn5GTI421i7DrDdEUE87JV6CRclW4V0bM2CZKlpHNB4Pjn4dgBe5947dUYH2UwWnukumwOE0z5WZnG6PCZ_Q-OGuZy-ugRBjssfIGg3d95zPrYXk00-qLsKF"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="text-body-lg font-bold text-on-surface">Brown Spot</h3>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded text-label-sm font-bold">92%</span>
+</div>
+<div class="mt-xs space-y-xs">
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                                    Oct 12, 2023
+                                </p>
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Sylhet
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative flex gap-md items-start group">
+<div class="z-10 w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-outline shadow-md shrink-0">
+<span class="material-symbols-outlined">radio_button_checked</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 hover:shadow-md transition-shadow duration-300">
+<div class="flex gap-md">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-variant" data-alt="Detail shot of a rice leaf with narrow, reddish-brown streaks indicating bacterial leaf streak. The image is captured in sharp focus with professional macro photography techniques. The lighting mimics natural afternoon sunlight in a paddy field, creating a high-contrast and clear visual for agricultural diagnosis. The color palette centers on vibrant greens and sharp autumnal browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsNQnEBPPh84LNBQuzFx_j5kFmAvfKL9-0jfLk9vFY4Wjf37q1xsjgy7WOLRQqyuLYcIM8AAClyUbfsCFAeiAvJYwKdXbEOy1GYUUhkhoZ-C1kMvyYKIR5nm6MYB2Kt9NZdXBoU9yoBmCil98a4HuMJj-cLXhAHhSP1mxpFkVsonYNhUgvwyvWKysVgSWa_K4MAbyBhCKvWbaR7rT7NA1KbfSXtiwVPVN-dFDUtEpCtA7f0B0Y22Jy24k5fz7pXSWxZbMLqWtqm13w"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="text-body-lg font-bold text-on-surface">Leaf Streak</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-sm py-xs rounded text-label-sm font-bold">88%</span>
+</div>
+<div class="mt-xs space-y-xs">
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                                    Oct 08, 2023
+                                </p>
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Sylhet
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative flex gap-md items-start group">
+<div class="z-10 w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-outline shadow-md shrink-0">
+<span class="material-symbols-outlined">radio_button_checked</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 hover:shadow-md transition-shadow duration-300">
+<div class="flex gap-md">
+<img class="w-16 h-16 rounded-lg object-cover bg-surface-variant" data-alt="A macro view of healthy rice stalks and vibrant green leaves swaying in the wind. The visual style is clean, modern, and clinical, emphasizing plant health through high-key lighting and a crisp, saturated palette of deep emerald and lime greens. The atmosphere is optimistic and serene, representing successful crop management in a sunny Bangladeshi field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXp1y0IW-zSBaJUqZcYDY3GEhqmB-IqL8P49KkNLUdhQ87Rh_1ZCDeNq1Z99NVUv_xYSGQdhwNt4jv9mjSR_L5wvL1i4RbteUlOwTb7scV2sy0piUoSJn418yTbKiuYmKLtV6e0ITOkS6HZRkqh_6nonYeiYhAAqShWGcQayOm3TQJQQlAq3Ek3zKDCwTYvEoiVDSWfmZhdC419YskET25nRe8qJQksbtBBRWar2J4MNJvkfQ7nN23YZaYFZ_y2hkhqMT4dEci4xR8"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="text-body-lg font-bold text-on-surface">Healthy Crop</h3>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded text-label-sm font-bold">99%</span>
+</div>
+<div class="mt-xs space-y-xs">
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+                                    Oct 02, 2023
+                                </p>
+<p class="flex items-center gap-xs text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Maulvibazar
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface px-xs shadow-[0px_-2px_4px_rgba(0,0,0,0.05)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<!-- Scan -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</a>
+<!-- History (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</a>
+<!-- Library -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="book_2">book_2</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for filter chips
+        const chips = document.querySelectorAll('.flex.gap-sm button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-primary', 'text-on-primary');
+                    c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                chip.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Simple animation trigger for the bar chart on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.rounded-t-lg');
+            bars.forEach((bar, index) => {
+                const targetHeight = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = targetHeight;
+                }, index * 100);
+            });
+        });
+    </script>
+</body></html>

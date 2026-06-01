@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Detection Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Sans+Bengali:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#19724f",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "surface-container-highest": "#c1ecd4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#b8e4cc",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#95d4b3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface": "#e8fff0",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#a8e7c5",
+                        "tertiary-fixed-dim": "#ffb780",
+                        "surface-variant": "#c1ecd4",
+                        "background": "#e8fff0",
+                        "outline-variant": "#bfc9c1",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-container-low": "#d1fee5",
+                        "primary-container": "#2d6a4f",
+                        "on-tertiary-fixed": "#2f1400",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#cffbe2",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container": "#ccf8df",
+                        "inverse-surface": "#0e3727",
+                        "tertiary": "#713900",
+                        "outline": "#707973",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#002114",
+                        "on-surface-variant": "#404943",
+                        "tertiary-fixed": "#ffdcc4",
+                        "secondary": "#0e6c4a",
+                        "surface-bright": "#e8fff0",
+                        "tertiary-container": "#8f4f14",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2c694e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#002114",
+                        "primary": "#0f5238",
+                        "secondary-fixed": "#a0f4c8",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "surface-container-high": "#c6f2da",
+                        "on-tertiary-container": "#ffd1b1",
+                        "primary-fixed-dim": "#95d4b3",
+                        "severity-danger": "#E76F51"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-tablet": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Noto Sans Bengali"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Noto Sans Bengali"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .heatmap-overlay {
+            background: radial-gradient(circle at 40% 50%, rgba(231, 111, 81, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 60% 30%, rgba(231, 111, 81, 0.3) 0%, transparent 35%),
+                        radial-gradient(circle at 20% 70%, rgba(231, 111, 81, 0.5) 0%, transparent 30%);
+            mix-blend-mode: multiply;
+        }
+        .scroll-mask {
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        }
+        .tap-highlight-transparent { -webkit-tap-highlight-color: transparent; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="potted_plant">potted_plant</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="px-3 py-1 rounded-full border-2 border-outline-variant text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-100">
+            EN/BN
+        </button>
+</header>
+<main class="pt-16 max-w-md mx-auto">
+<!-- Hero Image Section with Heatmap -->
+<section class="relative w-full aspect-square overflow-hidden bg-surface-container">
+<img alt="Rice leaf analysis" class="w-full h-full object-cover" data-alt="A professional close-up photograph of a bright green rice leaf showing distinct brownish-gray lesions typical of rice blast disease. The lighting is bright and even, highlighting the intricate textures of the leaf veins. Overlaid are translucent glowing red heat-map indicators focusing on the most affected areas, symbolizing high-precision AI diagnostic scanning in a modern agricultural technology context. The aesthetic is clean, scientific, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALsB5WwZMFRLiAWiC3CpEJhKYqeJqAGO283-xlJ8D7GlP0581HkMMM-ubYu5kuwWPHFJpi0Vkkl5ZcXuXBdLpu-9J1zJBZi-cXZN5Y3CllZpQseA4nXCjo838n31Lv9Vx5B3gOJ4l0fM2Z2X_Pdvy270-aGi2U57p1gYG-XGFmmer1VTfGHSbSlcR4OpY5NQ17Hljtg1-k0j929iJJcM931lD2auLiC-u2h0H2BWsDKiztMwcdcXpY7jenvFl1MVpTJIVzvhPTvo4"/>
+<!-- Simulated Heatmap Layer -->
+<div class="absolute inset-0 heatmap-overlay animate-pulse"></div>
+<!-- Scanning Animation Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-primary/40 shadow-[0_0_15px_rgba(15,82,56,0.8)] animate-[scan_3s_infinite_linear]"></div>
+<style>
+                @keyframes scan {
+                    0% { top: 0%; opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { top: 100%; opacity: 0; }
+                }
+            </style>
+</section>
+<!-- Results Card -->
+<section class="px-margin-mobile -mt-8 relative z-10">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] p-md">
+<!-- Title & Confidence Row -->
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">Rice Blast</h2>
+<h3 class="text-label-md font-label-md text-on-surface-variant">ধান ব্লাস্ট</h3>
+<div class="mt-2 inline-flex items-center gap-2 bg-[#E76F51]/10 text-severity-danger px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-caption font-caption font-bold">HIGH SEVERITY / উচ্চ তীব্রতা</span>
+</div>
+</div>
+<!-- Circular Progress Indicator -->
+<div class="relative flex flex-col items-center">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container flex items-center justify-center relative overflow-hidden">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-secondary-container" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-primary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="176" stroke-dashoffset="10.5" stroke-width="4"></circle>
+</svg>
+<span class="absolute text-label-sm font-bold">94%</span>
+</div>
+<span class="text-caption mt-1 text-on-surface-variant">Confidence</span>
+</div>
+</div>
+<!-- Action Buttons Grid -->
+<div class="grid grid-cols-3 gap-sm mb-lg">
+<button class="flex flex-col items-center justify-center gap-1 p-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined">save</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Save</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 p-2 rounded-lg bg-surface-container-low text-primary hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined">share</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Share</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 p-2 rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity active:scale-95">
+<span class="material-symbols-outlined">refresh</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Rescan</span>
+</button>
+</div>
+<!-- Expandable Sections -->
+<div class="space-y-md">
+<!-- Section 1 -->
+<details class="group border-b border-outline-variant pb-md" open="">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-body-md font-bold">Treatment Actions / চিকিৎসা</span>
+</div>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-md text-on-surface-variant space-y-2 pl-9">
+<div class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<p class="text-label-sm font-label-sm">Apply Tricyclazole 75 WP at 0.6g/L of water immediately.</p>
+</div>
+<div class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<p class="text-label-sm font-label-sm">বিঘাপ্রতি ৮০-১০০ লিটার পানিতে ট্রাইসাইক্লাজোল মিশিয়ে স্প্রে করুন।</p>
+</div>
+<div class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<p class="text-label-sm font-label-sm">Suspend nitrogenous fertilizer application until recovery.</p>
+</div>
+</div>
+</details>
+<!-- Section 2 -->
+<details class="group border-b border-outline-variant pb-md">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="text-body-md font-bold">Prevention Tips / প্রতিরোধ</span>
+</div>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-md text-on-surface-variant space-y-2 pl-9">
+<div class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<p class="text-label-sm font-label-sm">Ensure proper spacing between plants for ventilation.</p>
+</div>
+<div class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<p class="text-label-sm font-label-sm">জমি আগাছামুক্ত রাখুন এবং সুষম সার ব্যবহার করুন।</p>
+</div>
+</div>
+</details>
+</div>
+<!-- Note / Warning -->
+<div class="mt-lg p-md rounded-lg bg-surface-container border-l-4 border-primary/20">
+<p class="text-caption text-on-surface-variant italic">
+                        "AI results are diagnostic aids. Consult a local agricultural expert for final confirmation."
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface shadow-lg rounded-t-xl border-t border-outline-variant">
+<!-- Home -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform active:scale-90 duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<!-- Scan (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="document_scanner" style="font-variation-settings: 'FILL' 1;">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</button>
+<!-- History -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform active:scale-90 duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</button>
+<!-- Library -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform active:scale-90 duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-transform active:scale-90 duration-150 ease-in-out">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple Micro-interaction: Update confidence circle on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const circle = document.querySelector('circle.text-primary');
+            const circumference = 2 * Math.PI * 28;
+            const percent = 94;
+            const offset = circumference - (percent / 100) * circumference;
+            
+            circle.style.strokeDashoffset = offset;
+            circle.style.transition = 'stroke-dashoffset 1s ease-out';
+        });
+
+        // Add active state styles to the currently active nav item
+        // Note: Already handled by static generation based on the 'Scan' intent.
+    </script>
+</body></html>

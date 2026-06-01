@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Home / Scan Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e3de",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bfc9c1",
+                    "surface-bright": "#f8faf5",
+                    "secondary-container": "#a0f4c8",
+                    "secondary": "#0e6c4a",
+                    "background": "#f8faf5",
+                    "tertiary-fixed": "#ffdfa0",
+                    "inverse-surface": "#2e312e",
+                    "inverse-on-surface": "#eff1ec",
+                    "tertiary": "#5d4300",
+                    "primary-container": "#2d6a4f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#7a5a00",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-fixed-dim": "#fbbc00",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "surface-container-highest": "#e1e3de",
+                    "surface-container": "#ecefea",
+                    "on-background": "#191c1a",
+                    "on-tertiary-container": "#ffd47b",
+                    "on-surface-variant": "#404943",
+                    "primary-fixed-dim": "#95d4b3",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#b1f0ce",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-high": "#e7e9e4",
+                    "outline": "#707973",
+                    "on-secondary-fixed": "#002113",
+                    "surface-tint": "#2c694e",
+                    "primary": "#0f5238",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container-low": "#f2f4ef",
+                    "on-error": "#ffffff",
+                    "surface": "#f8faf5",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "inverse-primary": "#95d4b3",
+                    "surface-dim": "#d8dbd6",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1a",
+                    "on-secondary-container": "#19724f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "8px",
+                    "xl": "12px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-margin": "16px",
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(45, 106, 79, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 106, 79, 0); }
+        }
+        .pulse-effect { animation: pulse-ring 2s infinite ease-in-out; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-20">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="agriculture">agriculture</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="px-md py-xs rounded-lg border-2 border-primary text-primary font-label-md hover:bg-surface-container-low transition-colors duration-300">
+            English
+        </button>
+</header>
+<main class="pt-20 px-container-margin max-w-lg mx-auto">
+<!-- Hero Tagline Area -->
+<section class="mb-xl text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-xs">
+                Take a photo. Know the disease. Save your crop.
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                ছবি তুলুন। রোগ শনাক্ত করুন। ফসল বাঁচান।
+            </p>
+</section>
+<!-- Pulsing Upload Zone -->
+<section class="mb-xl">
+<div class="relative w-full aspect-square max-w-[320px] mx-auto group">
+<div class="absolute inset-0 bg-primary-container/5 rounded-full pulse-effect"></div>
+<label class="relative flex flex-col items-center justify-center w-full h-full border-4 border-dashed border-primary-container rounded-[32px] bg-surface-container-lowest cursor-pointer hover:bg-secondary-container/10 transition-all duration-300 group-active:scale-95">
+<input accept="image/*" class="hidden" type="file"/>
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mb-md shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white text-[48px]" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary text-center px-lg">Start Scanning Now</span>
+<span class="font-label-md text-label-md text-outline mt-xs">Tap to upload or take a photo</span>
+</label>
+</div>
+</section>
+<!-- Quick Access Grid -->
+<section class="grid grid-cols-2 gap-md mb-xl">
+<a class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="history">history</span>
+<span class="font-label-md text-label-md text-on-surface">History</span>
+</a>
+<a class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="book_2">book_2</span>
+<span class="font-label-md text-label-md text-on-surface">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="groups">groups</span>
+<span class="font-label-md text-label-md text-on-surface">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-lg hover:bg-surface-container-low transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-primary mb-sm" data-icon="person">person</span>
+<span class="font-label-md text-label-md text-on-surface">Profile</span>
+</a>
+</section>
+<!-- Tips/Info Card (Asymmetric UI Pattern) -->
+<section class="mb-xl bg-secondary-container rounded-lg p-lg flex items-center gap-md">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mb-xs">Weather Alert</h3>
+<p class="font-body-md text-body-md text-on-secondary-container opacity-80">High humidity expected today. Monitor for leaf blast symptoms.</p>
+</div>
+<div class="w-16 h-16 bg-on-secondary-container/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="cloudy_snowing">cloudy_snowing</span>
+</div>
+</section>
+<!-- Recent Scan Peek (Bento-style preview) -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Scans</h3>
+<button class="text-primary font-label-md">View All</button>
+</div>
+<div class="grid grid-cols-3 gap-sm h-32">
+<div class="col-span-2 relative rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A close-up high-resolution photograph of a healthy green rice leaf in a sun-drenched paddy field in Bangladesh. The lighting is bright and natural, highlighting the detailed texture of the leaf. The background consists of a lush, blurred green agricultural landscape, creating a clean and modern diagnostic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCujcWHq-uPvHAzRWfqUzBJtxYUcAkhBummQaCS1SIzvKJ_Gun6LImTborPB4WnFhxPbG0e03-gFCn-DeVd-J34zDDKFx9hlUsvOdOJmWONogpo95a_m_b7ldMnDbHICbVJlMcQKkrupV8MPwqwmaY_ayw2mgZC77C2rHAZ9ZOxcDCQJccL50FXsXJIiILE9jDvktr-2b9003qegr2_oXUZ-Du3jhqSZw4E2Z7FT_aVQa_09-oaKY4B31yuqnoJGQHwlrD18rRkwfgp"/>
+<div class="absolute bottom-0 left-0 right-0 p-xs bg-black/40 backdrop-blur-sm">
+<span class="text-[10px] text-white font-label-sm">Yesterday • Healthy</span>
+</div>
+</div>
+<div class="col-span-1 rounded-lg bg-error-container flex flex-col items-center justify-center p-xs text-center">
+<span class="material-symbols-outlined text-error mb-xs" data-icon="warning">warning</span>
+<span class="text-[10px] text-on-error-container font-bold leading-tight">Brown Spot Found</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface shadow-[0px_-2px_4px_rgba(0,0,0,0.05)] px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<!-- Active Scan Tab -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-110 shadow-lg shadow-primary-container/20" href="#">
+<span class="material-symbols-outlined" data-icon="document_scanner" style="font-variation-settings: 'FILL' 1;">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="book_2">book_2</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple interaction for the scan button
+        const uploadZone = document.querySelector('label');
+        uploadZone.addEventListener('click', () => {
+            uploadZone.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                uploadZone.style.transform = 'scale(1)';
+            }, 100);
+        });
+
+        // Hide app bar on scroll down
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 64) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body></html>

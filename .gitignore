@@ -1,0 +1,57 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Next.js build outputs
+.next/
+out/
+build/
+dist/
+
+# Env secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local.production
+.env.local.development
+.env.local.test
+.env.local.staging
+.env.staging.local
+
+# ML Models and large datasets
+Defense/
+*.h5
+*.keras
+*.zip
+*.tar.gz
+*.tgz
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Local databases & logs
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vercel folders
+.vercel

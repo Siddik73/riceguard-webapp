@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Processing Diagnostic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 3s linear infinite;
+        }
+        .blur-bg-overlay {
+            backdrop-filter: blur(8px);
+            background-color: rgba(248, 250, 245, 0.6);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e1e3de",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "outline-variant": "#bfc9c1",
+                      "surface-bright": "#f8faf5",
+                      "secondary-container": "#a0f4c8",
+                      "secondary": "#0e6c4a",
+                      "background": "#f8faf5",
+                      "tertiary-fixed": "#ffdfa0",
+                      "inverse-surface": "#2e312e",
+                      "inverse-on-surface": "#eff1ec",
+                      "tertiary": "#5d4300",
+                      "primary-container": "#2d6a4f",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#7a5a00",
+                      "on-primary-fixed": "#002114",
+                      "tertiary-fixed-dim": "#fbbc00",
+                      "secondary-fixed-dim": "#85d7ad",
+                      "surface-container-highest": "#e1e3de",
+                      "surface-container": "#ecefea",
+                      "on-background": "#191c1a",
+                      "on-tertiary-container": "#ffd47b",
+                      "on-surface-variant": "#404943",
+                      "primary-fixed-dim": "#95d4b3",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#b1f0ce",
+                      "on-primary-container": "#a8e7c5",
+                      "surface-container-high": "#e7e9e4",
+                      "outline": "#707973",
+                      "on-secondary-fixed": "#002113",
+                      "surface-tint": "#2c694e",
+                      "primary": "#0f5238",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container-low": "#f2f4ef",
+                      "on-error": "#ffffff",
+                      "surface": "#f8faf5",
+                      "on-tertiary-fixed-variant": "#5c4300",
+                      "on-tertiary-fixed": "#261a00",
+                      "on-primary-fixed-variant": "#0e5138",
+                      "inverse-primary": "#95d4b3",
+                      "surface-dim": "#d8dbd6",
+                      "secondary-fixed": "#a0f4c8",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1a",
+                      "on-secondary-container": "#19724f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "container-margin": "16px",
+                      "gutter": "16px",
+                      "unit": "8px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Noto Sans"],
+                      "label-sm": ["Noto Sans"],
+                      "headline-lg": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="px-md py-xs rounded-lg border-2 border-primary text-primary font-label-md hover:bg-surface-container-low transition-colors duration-300">
+            English
+        </button>
+</header>
+<!-- Background Illustration (Blurred Rice Field) -->
+<div class="fixed inset-0 z-0">
+<img alt="Rice field" class="w-full h-full object-cover blur-sm opacity-60" data-alt="A lush, vibrant rice paddy field in rural Bangladesh during the golden hour. The landscape is filled with endless rows of bright green rice stalks swaying gently in the wind. The atmosphere is serene and natural, with warm sunlight filtering through soft clouds, creating a supportive and optimistic mood. The high-contrast greens and yellows emphasize a healthy agricultural ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy9f232wAPxkcxiHtCT0cCxrSKKeGMExDxQJW1flfUFUoODxizVzqq_j6REegg8QNBeMPkIHMKEC5Q7ZhSzRvS201heVvozCVJhQK5en9uDtF3RJ3Agi3wlyHDeKgn4rarKGjBTav8__9JDp1wPZutCcuhShjfImUj2dzZvIhTqHxHK3ZKVBUK4JzEt5msiqPpsORzu1NU43hFHxquowuOEMokkTSaRoxp7EqZ9n7YAegmfMUqqIzoxJw3zbTIo1oWA-q9np_trT3q"/>
+<div class="absolute inset-0 blur-bg-overlay"></div>
+</div>
+<!-- Main Processing Content -->
+<main class="relative z-10 flex-grow flex flex-col items-center justify-center px-container-margin pt-16 pb-32">
+<!-- Progress Container -->
+<div class="flex flex-col items-center gap-xl animate-in fade-in zoom-in duration-700">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<!-- Circular Progress Background -->
+<svg class="w-full h-full">
+<circle class="text-outline-variant/30" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary animate-spin-slow progress-ring-circle" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-dasharray="502.6" stroke-dashoffset="125" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Central Icon -->
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[48px]" data-icon="document_scanner">document_scanner</span>
+</div>
+</div>
+<div class="text-center space-y-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Analysing leaf patterns...</h2>
+<p class="font-body-md text-on-surface-variant">Our AI is checking for 14 different rice diseases.</p>
+</div>
+</div>
+<!-- Farmer's Tip Card -->
+<section class="mt-xl w-full max-w-md bg-secondary-container p-md rounded-xl shadow-sm border border-on-secondary-container/10 transition-all duration-300 hover:scale-[1.02]">
+<div class="flex items-start gap-md">
+<div class="bg-on-secondary-container text-secondary-container p-xs rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="space-y-xs">
+<h3 class="font-label-md text-label-md text-on-secondary-container font-bold">Farmer's Tip | কৃষকের পরামর্শ</h3>
+<p class="font-body-md text-on-secondary-container leading-relaxed">
+                        "Healthy leaves start with clean water and balanced fertilizer."
+                    </p>
+<p class="font-body-md text-on-secondary-container/80 leading-relaxed italic">
+                        "সুস্থ পাতার জন্য প্রয়োজন বিশুদ্ধ পানি এবং সুষম সার।"
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface shadow-[0px_-2px_4px_rgba(0,0,0,0.05)] px-xs">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="book_2">book_2</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the progress circle text
+        const messages = [
+            "Analysing leaf patterns...",
+            "Checking chlorophyll levels...",
+            "Comparing with database...",
+            "Finalising diagnosis..."
+        ];
+        let messageIndex = 0;
+        const headline = document.querySelector('h2');
+
+        setInterval(() => {
+            messageIndex = (messageIndex + 1) % messages.length;
+            headline.style.opacity = '0';
+            setTimeout(() => {
+                headline.textContent = messages[messageIndex];
+                headline.style.opacity = '1';
+            }, 300);
+        }, 3000);
+
+        // Apply style to transition the opacity smoothly
+        headline.style.transition = 'opacity 300ms ease-in-out';
+    </script>
+</body></html>

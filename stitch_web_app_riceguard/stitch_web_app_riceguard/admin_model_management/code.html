@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard Admin - Model Upload Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#19724f",
+                      "on-primary-fixed-variant": "#0e5138",
+                      "surface-container-highest": "#c1ecd4",
+                      "on-error-container": "#93000a",
+                      "surface-dim": "#b8e4cc",
+                      "on-secondary-fixed": "#002113",
+                      "secondary-container": "#a0f4c8",
+                      "inverse-primary": "#95d4b3",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#002114",
+                      "surface": "#e8fff0",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#a8e7c5",
+                      "tertiary-fixed-dim": "#ffb780",
+                      "surface-variant": "#c1ecd4",
+                      "background": "#e8fff0",
+                      "outline-variant": "#bfc9c1",
+                      "primary-fixed": "#b1f0ce",
+                      "surface-container-low": "#d1fee5",
+                      "primary-container": "#2d6a4f",
+                      "on-tertiary-fixed": "#2f1400",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#cffbe2",
+                      "on-secondary-fixed-variant": "#005236",
+                      "surface-container": "#ccf8df",
+                      "inverse-surface": "#0e3727",
+                      "tertiary": "#713900",
+                      "outline": "#707973",
+                      "on-secondary": "#ffffff",
+                      "on-surface": "#002114",
+                      "on-surface-variant": "#404943",
+                      "tertiary-fixed": "#ffdcc4",
+                      "secondary": "#0e6c4a",
+                      "surface-bright": "#e8fff0",
+                      "tertiary-container": "#8f4f14",
+                      "secondary-fixed-dim": "#85d7ad",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#2c694e",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#002114",
+                      "primary": "#0f5238",
+                      "secondary-fixed": "#a0f4c8",
+                      "on-tertiary-fixed-variant": "#6f3800",
+                      "surface-container-high": "#c6f2da",
+                      "on-tertiary-container": "#ffd1b1",
+                      "primary-fixed-dim": "#95d4b3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-tablet": "32px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "md": "16px",
+                      "sm": "8px"
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #0e3727; color: #e8fff0; }
+        .glass-card {
+            background: rgba(45, 106, 79, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(149, 212, 179, 0.1);
+        }
+        .chart-grid {
+            background-image: radial-gradient(circle, rgba(149, 212, 179, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #95d4b3;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(149, 212, 179, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-inverse-surface shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-[32px]">potted_plant</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">RiceGuard</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 rounded-xl text-label-md font-label-md text-primary dark:text-primary-fixed bg-surface-container dark:bg-surface-container-high hover:bg-surface-container-highest transition-colors">EN/BN</button>
+<div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary-fixed">
+<span class="material-symbols-outlined text-on-primary">admin_panel_settings</span>
+</div>
+</div>
+</header>
+<div class="flex h-screen pt-16">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col w-64 bg-inverse-surface border-r border-outline-variant/10 p-4 gap-2">
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary-container dark:bg-on-secondary-container text-on-secondary-container dark:text-secondary-container font-bold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="font-label-md text-label-md">Model Panel</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Data Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">System Config</span>
+</a>
+</nav>
+<div class="mt-auto p-4 glass-card rounded-xl">
+<p class="text-caption font-caption text-surface-variant/60 uppercase tracking-widest mb-2">System Status</p>
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="text-caption font-caption text-secondary-fixed-dim">All Nodes Active</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-xl bg-inverse-surface">
+<div class="max-w-6xl mx-auto space-y-lg">
+<!-- Header & Action Row -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary-fixed">Model Upload Panel</h2>
+<p class="text-body-md font-body-md text-surface-variant/80">Manage AI inference models and traffic routing.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary px-6 py-3 rounded-xl text-white font-bold hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">upload</span>
+<span>Deploy New Version</span>
+</button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- 1. Accuracy Comparison Chart (Large) -->
+<div class="lg:col-span-8 glass-card rounded-xl p-lg relative overflow-hidden">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md text-primary-fixed">Accuracy Comparison</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-caption font-caption">v2.1.0</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+<span class="text-caption font-caption text-outline">v2.0.4</span>
+</div>
+</div>
+</div>
+<div class="h-64 chart-grid relative rounded-lg border border-outline-variant/10 flex items-end justify-between px-md pb-xs">
+<!-- Simple Visual Mock of Line Chart -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 80 Q 25 70, 50 40 T 100 10" fill="none" stroke="#2d6a4f" stroke-width="3"></path>
+<path d="M0 85 Q 25 80, 50 65 T 100 45" fill="none" stroke="#707973" stroke-dasharray="4" stroke-width="2"></path>
+<circle cx="50" cy="40" fill="#95d4b3" r="3"></circle>
+<circle cx="100" cy="10" fill="#95d4b3" r="3"></circle>
+</svg>
+<span class="text-[10px] text-surface-variant/40">Day 1</span>
+<span class="text-[10px] text-surface-variant/40">Day 7</span>
+<span class="text-[10px] text-surface-variant/40">Day 14</span>
+<span class="text-[10px] text-surface-variant/40">Day 21</span>
+<span class="text-[10px] text-surface-variant/40">Current</span>
+</div>
+</div>
+<!-- 2. Traffic Split Toggle (Small/Medium) -->
+<div class="lg:col-span-4 glass-card rounded-xl p-lg flex flex-col justify-between border-2 border-secondary/30">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary-fixed mb-2">Traffic Routing</h3>
+<p class="text-caption font-caption text-surface-variant/60 mb-8">Adjust A/B testing distribution between current production and testing candidate.</p>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="text-center">
+<p class="text-headline-lg font-headline-lg text-primary-fixed" id="valA">90%</p>
+<p class="text-caption font-caption text-surface-variant">v2.0 (Prod)</p>
+</div>
+<div class="text-center">
+<p class="text-headline-lg font-headline-lg text-secondary-fixed-dim" id="valB">10%</p>
+<p class="text-caption font-caption text-surface-variant">v2.1 (Beta)</p>
+</div>
+</div>
+<input class="w-full h-2 bg-inverse-surface rounded-lg appearance-none cursor-pointer border border-outline-variant/30" max="100" min="0" oninput="updateTraffic(this.value)" type="range" value="90"/>
+<button class="w-full py-2 bg-on-secondary-container text-secondary-container rounded-lg font-bold text-label-sm hover:opacity-90 transition-opacity">
+                                Apply Split Config
+                            </button>
+</div>
+</div>
+<!-- 3. Model Versions Table (Wide) -->
+<div class="lg:col-span-12 glass-card rounded-xl overflow-hidden">
+<div class="p-lg border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-primary-fixed">Version Registry</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-surface-variant p-2 hover:bg-surface-container-low rounded-lg cursor-pointer">filter_list</span>
+<span class="material-symbols-outlined text-surface-variant p-2 hover:bg-surface-container-low rounded-lg cursor-pointer">search</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low/20">
+<tr>
+<th class="px-lg py-md text-label-sm font-label-sm text-surface-variant/60 uppercase">Model Name</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-surface-variant/60 uppercase">Version</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-surface-variant/60 uppercase">Status</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-surface-variant/60 uppercase">Accuracy</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-surface-variant/60 uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low/10 transition-colors">
+<td class="px-lg py-md font-body-md">BlastDetection_Lite</td>
+<td class="px-lg py-md font-body-md text-primary-fixed">v2.1.0</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary-fixed-dim border border-secondary/30 rounded-full text-[12px] font-bold">TESTING</span>
+</td>
+<td class="px-lg py-md font-body-md">98.4%</td>
+<td class="px-lg py-md">
+<span class="material-symbols-outlined text-surface-variant cursor-pointer hover:text-primary-fixed">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/10 transition-colors">
+<td class="px-lg py-md font-body-md">BlastDetection_Lite</td>
+<td class="px-lg py-md font-body-md text-primary-fixed">v2.0.4</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 bg-primary-container/20 text-primary-fixed-dim border border-primary/30 rounded-full text-[12px] font-bold">ACTIVE</span>
+</td>
+<td class="px-lg py-md font-body-md">96.1%</td>
+<td class="px-lg py-md">
+<span class="material-symbols-outlined text-surface-variant cursor-pointer hover:text-primary-fixed">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/10 transition-colors">
+<td class="px-lg py-md font-body-md">SheathBlight_Pro</td>
+<td class="px-lg py-md font-body-md text-primary-fixed">v1.8.2</td>
+<td class="px-lg py-md">
+<span class="px-3 py-1 bg-error-container/10 text-error border border-error/30 rounded-full text-[12px] font-bold">DEPRECATED</span>
+</td>
+<td class="px-lg py-md font-body-md">91.0%</td>
+<td class="px-lg py-md">
+<span class="material-symbols-outlined text-surface-variant cursor-pointer hover:text-primary-fixed">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="glass-card p-md rounded-xl">
+<p class="text-caption font-caption text-surface-variant/60">Total Inferences</p>
+<p class="text-headline-md font-headline-md text-primary-fixed">1.2M+</p>
+</div>
+<div class="glass-card p-md rounded-xl">
+<p class="text-caption font-caption text-surface-variant/60">Avg Latency</p>
+<p class="text-headline-md font-headline-md text-primary-fixed">142ms</p>
+</div>
+<div class="glass-card p-md rounded-xl">
+<p class="text-caption font-caption text-surface-variant/60">Success Rate</p>
+<p class="text-headline-md font-headline-md text-primary-fixed">99.98%</p>
+</div>
+<div class="glass-card p-md rounded-xl">
+<p class="text-caption font-caption text-surface-variant/60">GPU Load</p>
+<p class="text-headline-md font-headline-md text-primary-fixed">42%</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Responsive Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-inverse-surface border-t border-outline-variant/10 shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-container text-on-secondary-container dark:text-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="text-label-sm font-label-sm">Models</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-sm font-label-sm">Stats</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        function updateTraffic(val) {
+            document.getElementById('valA').innerText = val + '%';
+            document.getElementById('valB').innerText = (100 - val) + '%';
+        }
+        
+        // Simple ambient subtle glow effect for the panel
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.createElement('div');
+            // This is just a conceptual hook for micro-interactions
+        });
+    </script>
+</body></html>

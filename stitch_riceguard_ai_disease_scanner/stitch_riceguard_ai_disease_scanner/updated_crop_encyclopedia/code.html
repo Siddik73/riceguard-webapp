@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Encyclopedia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e3de",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bfc9c1",
+                    "surface-bright": "#f8faf5",
+                    "secondary-container": "#a0f4c8",
+                    "secondary": "#0e6c4a",
+                    "background": "#f8faf5",
+                    "tertiary-fixed": "#ffdfa0",
+                    "inverse-surface": "#2e312e",
+                    "inverse-on-surface": "#eff1ec",
+                    "tertiary": "#5d4300",
+                    "primary-container": "#2d6a4f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#7a5a00",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-fixed-dim": "#fbbc00",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "surface-container-highest": "#e1e3de",
+                    "surface-container": "#ecefea",
+                    "on-background": "#191c1a",
+                    "on-tertiary-container": "#ffd47b",
+                    "on-surface-variant": "#404943",
+                    "primary-fixed-dim": "#95d4b3",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#b1f0ce",
+                    "on-primary-container": "#a8e7c5",
+                    "surface-container-high": "#e7e9e4",
+                    "outline": "#707973",
+                    "on-secondary-fixed": "#002113",
+                    "surface-tint": "#2c694e",
+                    "primary": "#0f5238",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container-low": "#f2f4ef",
+                    "on-error": "#ffffff",
+                    "surface": "#f8faf5",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "inverse-primary": "#95d4b3",
+                    "surface-dim": "#d8dbd6",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191c1a",
+                    "on-secondary-container": "#19724f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "container-margin": "16px",
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 2px solid #0f5238;
+            color: #0f5238;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bfc9c1;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-20">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm transition-all duration-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="px-3 py-1 rounded-full border border-outline text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-300">
+            English
+        </button>
+</header>
+<!-- Main Content -->
+<main class="pt-20 px-container-margin max-w-4xl mx-auto">
+<div class="mb-lg">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-background mb-1">Crop Encyclopedia</h2>
+<p class="text-on-surface-variant text-label-md font-label-md">Identify and manage rice diseases efficiently.</p>
+</div>
+<!-- Search & Filter Chips -->
+<div class="flex gap-sm overflow-x-auto pb-md no-scrollbar">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap">All Diseases</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Fungal</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Bacterial</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Viral</button>
+</div>
+<!-- Bento-style Grid (2 columns) -->
+<section class="grid grid-cols-2 gap-md mt-sm"><!-- Card 1: Healthy Leaf -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Healthy Leaf')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Healthy rice leaf" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1PnEpTbQ7POmLk61gYrUxX-vdSCQawJ894e4fDLQCZbEzCjkLMMv6A25RG0qGNwh_CdOPnBHkO_q81Fi5abCqs2bG8IyecZHNJRxvXmpcdz_pUq0wfcgX00AzSQ_hmAk8UxoKkXwrP2VwG9-k0VaQ72C4XiFWKaboDNgYtkn199SGfNkAOxATBTGKSjT_DyNE0gYUQ7vWOssO1RvyxXlxc91R-p4hibs-3k_tSMLK7H0s1Ubl6Mz_BFThayYeDVNFKCZOBfHdibQ_"/>
+<span class="absolute top-2 right-2 bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Low</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Healthy Leaf</h3>
+<p class="text-[12px] text-on-surface-variant italic">Oryza sativa</p>
+<p class="text-[12px] text-on-surface-variant font-['Noto_Sans_Bengali']">সুস্থ পাতা</p>
+</div>
+</div>
+<!-- Card 2: Leaf Smut -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Leaf Smut')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Rice leaf with smut" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEsIh4P9Y0n62YUu8R1sMu-COAFlxoJXZKDiOIEFDI9lUijy5PVHKCRtYzCZlelABWwuTdWaCoSRM7QguwsTtazxVIFarToY8OV_PPYpGEX8aa5wAI4Q1C1EUiPEsOUg7ylT83wNJHNndHWfHNngmy97__lIn2a0OvAPH6vWZM0opfFocY_jR0e4IvYlMtYomHuch4gDnUqdf98e82QY3C54ze71tA8P8U3bNXtf3giNYHBEPurj-fxB8TLzkclW6XLvSO9_jMQmuJ"/>
+<span class="absolute top-2 right-2 bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Medium</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Leaf Smut</h3>
+<p class="text-[12px] text-on-surface-variant italic">Entyloma oryzae</p>
+<p class="text-[12px] text-on-surface-variant font-['Noto_Sans_Bengali']">পাতার ঝাড়ু রোগ</p>
+</div>
+</div>
+<!-- Card 3: Leaf Blast (Replacing original Rice Blast position) -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Leaf Blast')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Leaf Blast" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkhhrVRMjz8CY0QZCbX9hzC-KaS2SUvyAxj_2dWyfLr8X2VjSz6iIPYZmHE2YcLzixbcS7isFj-QOG2XfwviUka3fbi4ajt0WHWfYuVYFpUsbyW-B3h-uLRCx-IKEGRSM0aCqDnk0JnMhmPcPPbPXerQQV0mZOPMMI2XCf4Akch4O-2GophsILd9EE7Ka-jlJddPKY_vxgpNlj_ZFZXlqmjCPEd_XiwHjsTFi81Z3HCW-R_LwoANzAxuy3KsUaE5x6E2XdLxIZtkFl"/>
+<span class="absolute top-2 right-2 bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">High</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Leaf Blast</h3>
+<p class="text-[12px] text-on-surface-variant italic">Magnaporthe oryzae</p>
+<p class="text-[12px] text-on-surface-variant font-['Noto_Sans_Bengali']">ব্লাস্ট রোগ</p>
+</div>
+</div>
+<!-- Card 4: Leaf Blight -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Leaf Blight')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Leaf Blight" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnZpsDd8cy6By7HTR71VcbF2ra5fjbZhPym4KVB1nP8gsMAy0zEGNee-jIohTjelCQAUdnVbeAuiUlKa2jxkyGyBULhLUZIdnamJa0sjtwXSE8j0VM6JBOrqcGTjubv28bg1Yl5B1P01ajLSyO14cN9YvT2voLHoZ6GjSA9bXjV0347ovNCBPnUmMfZL6KUHCODW8q5nhFlUOpvkpUqmdR488vnmN-vDrwDkctcoj9l3-qpFJng76FqmIOcLY2qjX2Jdv0AtQEOd-s"/>
+<span class="absolute top-2 right-2 bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">High</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Leaf Blight</h3>
+<p class="text-[12px] text-on-surface-variant italic">Xanthomonas oryzae</p>
+<p class="text-[12px] text-on-surface-variant font-['Noto_Sans_Bengali']">পাতা পোড়া রোগ</p>
+</div>
+</div>
+<!-- Card 5: Brown Spot -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Brown Spot')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Brown Spot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHS4TOWQUyrGrIAqysbXgetaMpf_xDUyE53xCLZV8sZsF3pQG2aSbfzEufd9RLEDvTVfnBdvifKX6eqGC2ToMZKdLrMXWvj-kjD1Tql6jsptZ6LwCWP3jhEu5Ka0tlaeWsaxtstqdbmCUpWTmTNzCTdkitBavnoCcEK_NxQsYFD5t2uLg0KM4a_HOqNwRmbgDOuBhZn74UyiZTQFdd_7MlHwcmwVbTyPIS5JdLnFT2R-Ozy6ZTU07v5UBD0BOwb0BQ4Ag_qk5GHsqP"/>
+<span class="absolute top-2 right-2 bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Medium</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Brown Spot</h3>
+<p class="text-[12px] text-on-surface-variant italic">Cochliobolus miyabeanus</p>
+<p class="text-[12px] text-on-surface-variant font-['Noto_Sans_Bengali']">বাদামী দাগ রোগ</p>
+</div>
+</div>
+<!-- Remaining existing cards -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Sheath Rot')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Sheath Rot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxt1EG5QR60e2faReWfCo3xKNyH-OAN7CH5oEnjDU3QF-STz8ek_W7Z9duFIcTrsdeETEwhWa4SvCIqOmgZe-N7tTMnsSH42bGu062Re3FChTpZWWfOAahG3k9pLeIo9n79RaTCW66KV9CNFmd80D0DUZRg66s_J7FZJcCFcGBT78D1RpQKDvtcIQTRJzLYcvHn9wCW_o7JsQ4IldQ5_H8ux0a-7XSRp8sVBqsHsgd_S1yySM-trb6I1ZfwvdHb2KDdnhMskQO1Jil"/>
+<span class="absolute top-2 right-2 bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Medium</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Sheath Rot</h3>
+<p class="text-[12px] text-on-surface-variant italic">Sarocladium oryzae</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('Rice Tungro')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="Rice Tungro" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOE25tOQfo21wAYrETk9GHjyKF9z5QIlAovaiDeIXiOJMvwcrtz5xjc-dA9iXt78jy3tKFnV-seFIY0vCiYIeJARU9BEoqMcJETVszj-1_0H2jyhFFo3l1DeTj3sSGcytMX94LljckAMTD4qT9pB8gxb4aDH2Yd4drXRzjJRosA4Eb_Ypuu8wKlIegWw80NceLtSIBVng783Elkc2Tkga-HxdiyV5HFQGGE3q30daU7TzjmlwkvVGy6-2xJ_eXYj28yxs2sYrqgjQO"/>
+<span class="absolute top-2 right-2 bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">High</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">Rice Tungro</h3>
+<p class="text-[12px] text-on-surface-variant italic">RTBV &amp; RTSV</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer" onclick="openModal('False Smut')">
+<div class="aspect-square relative overflow-hidden bg-surface-variant">
+<img alt="False Smut" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ85Hkh3SXmPMPHwyhToMWAbALYE1MYLtXgBH1mO6iAqRSfgTY44Y6IUxLOsu2kziheXQW5zYIX4L7S-Hzv7Aia7RvDbTPB_tqkJ_cRcc14dWM7n6JTV_YyAOjRVzoielVQ5gcjQERCGZm0ak9g5xla0-dLRYm7kC8oGwn43Bp6-VsyzzEwHG0NzLGKLI_FcdN_woGnFgvaYHMPyvGWdpPJLvqBagANpuca1Xhmtu2QREaPlE-96J4LfJ5ZTIP54pB3rphp6w3YYWz"/>
+<span class="absolute top-2 right-2 bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Low</span>
+</div>
+<div class="p-3">
+<h3 class="text-label-md font-bold text-on-surface truncate">False Smut</h3>
+<p class="text-[12px] text-on-surface-variant italic">Ustilaginoidea virens</p>
+</div>
+</div></section>
+</main>
+<!-- Modal View -->
+<div class="fixed inset-0 z-[100] hidden flex items-end md:items-center justify-center p-0 md:p-lg transition-opacity duration-300" id="diseaseModal">
+<div class="absolute inset-0 bg-on-background/40 backdrop-blur-sm" onclick="closeModal()"></div>
+<div class="relative w-full max-w-lg bg-surface rounded-t-xl md:rounded-xl overflow-hidden flex flex-col h-[751px] md:h-auto md:max-h-[707px] shadow-xl transform transition-transform duration-300 translate-y-full md:translate-y-0" id="modalContent">
+<!-- Modal Header -->
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface sticky top-0 z-10">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary" id="modalTitle">Rice Blast</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide">Detailed Guide • বিস্তারিত গাইড</p>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined text-on-surface">close</span>
+</button>
+</div>
+<!-- Tab Navigation -->
+<div class="flex overflow-x-auto bg-surface-container-low px-sm border-b border-outline-variant no-scrollbar">
+<button class="px-4 py-3 text-label-md font-bold whitespace-nowrap active-tab" id="tab-symptoms" onclick="switchTab('symptoms')">Symptoms</button>
+<button class="px-4 py-3 text-label-md font-bold whitespace-nowrap text-on-surface-variant" id="tab-treatment" onclick="switchTab('treatment')">Treatment</button>
+<button class="px-4 py-3 text-label-md font-bold whitespace-nowrap text-on-surface-variant" id="tab-prevention" onclick="switchTab('prevention')">Prevention</button>
+<button class="px-4 py-3 text-label-md font-bold whitespace-nowrap text-on-surface-variant" id="tab-qa" onclick="switchTab('qa')">Q&amp;A</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-md custom-scrollbar bg-surface-container-lowest">
+<div class="space-y-md animate-in fade-in duration-300" id="content-symptoms">
+<div class="bg-surface-container rounded-lg p-md">
+<p class="text-on-surface font-bold mb-xs">English</p>
+<ul class="list-disc pl-5 space-y-2 text-on-surface-variant">
+<li>Spindle-shaped spots with white to gray-green centers.</li>
+<li>Brownish margins on older lesions.</li>
+<li>Nodes can turn black and break easily (node blast).</li>
+</ul>
+</div>
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-md rounded-lg">
+<p class="text-on-surface font-bold mb-xs">বাংলা (Bengali)</p>
+<p class="text-on-surface-variant">পাতায় চোখের মতো দাগ দেখা যায় যার মাঝখানে ধূসর এবং চারপাশে বাদামী বর্ডার থাকে। গিট পচে কালো হয়ে যেতে পারে।</p>
+</div>
+</div>
+<div class="hidden space-y-md animate-in fade-in duration-300" id="content-treatment">
+<h3 class="font-bold text-primary">Recommended Actions</h3>
+<div class="grid grid-cols-1 gap-sm">
+<div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">vaccines</span>
+<div>
+<p class="font-bold text-on-surface">Chemical Control</p>
+<p class="text-sm text-on-surface-variant">Apply Tricyclazole 75 WP at recommended dosage during cool morning hours.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-white rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<div>
+<p class="font-bold text-on-surface">Water Management</p>
+<p class="text-sm text-on-surface-variant">Maintain a shallow water level in the field to reduce moisture stress.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden space-y-md animate-in fade-in duration-300" id="content-prevention">
+<h3 class="font-bold text-primary">Early Prevention</h3>
+<ul class="space-y-3">
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-surface-variant">Use resistant varieties like BRRI dhan 28 or 29.</span>
+</li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-surface-variant">Balanced fertilizer use (avoid excess nitrogen).</span>
+</li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-on-surface-variant">Seed treatment before sowing.</span>
+</li>
+</ul>
+</div>
+<div class="hidden space-y-md animate-in fade-in duration-300" id="content-qa">
+<div class="space-y-4">
+<div class="p-3 bg-surface-container rounded-lg">
+<p class="font-bold text-sm">Hasan R. <span class="font-normal text-outline text-xs">• 2h ago</span></p>
+<p class="text-on-surface-variant mt-1">Can this spread to my neighbor's field easily?</p>
+<div class="mt-2 pl-4 border-l-2 border-primary">
+<p class="text-xs font-bold text-primary">Expert Answer</p>
+<p class="text-sm text-on-surface-variant italic">Yes, spores are wind-borne. Early action is vital.</p>
+</div>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-outline-variant rounded-lg text-primary font-bold text-sm">Ask the Community</button>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-md bg-surface border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">print</span>
+                    Download Diagnosis PDF
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface px-xs shadow-[0px_-2px_4px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="document_scanner">document_scanner</span>
+<span class="text-label-sm font-label-sm">Scan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">History</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined" data-icon="book_2" style="font-variation-settings: 'FILL' 1;">book_2</span>
+<span class="text-label-sm font-label-sm">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant/20 transition-colors duration-300">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</div>
+</nav>
+<script>
+        function openModal(title) {
+            const modal = document.getElementById('diseaseModal');
+            const content = document.getElementById('modalContent');
+            const titleEl = document.getElementById('modalTitle');
+            
+            titleEl.innerText = title;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('translate-y-full');
+                content.classList.add('translate-y-0');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('diseaseModal');
+            const content = document.getElementById('modalContent');
+            
+            content.classList.remove('translate-y-0');
+            content.classList.add('translate-y-full');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function switchTab(tabId) {
+            // Hide all contents
+            ['symptoms', 'treatment', 'prevention', 'qa'].forEach(id => {
+                document.getElementById('content-' + id).classList.add('hidden');
+                document.getElementById('tab-' + id).classList.remove('active-tab');
+                document.getElementById('tab-' + id).classList.add('text-on-surface-variant');
+            });
+
+            // Show active content
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
+            document.getElementById('tab-' + tabId).classList.remove('text-on-surface-variant');
+        }
+    </script>
+</body></html>

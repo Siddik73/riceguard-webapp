@@ -1,0 +1,22 @@
+{
+  "short_name": "RiceGuard",
+  "name": "RiceGuard - Digital Paddy Agronomy",
+  "description": "Scan and diagnose rice leaf diseases with machine learning.",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F8FAF5",
+  "theme_color": "#2D6A4F",
+  "display": "standalone",
+  "orientation": "portrait"
+}

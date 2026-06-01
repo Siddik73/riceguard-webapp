@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RiceGuard - Disease Encyclopedia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Sans+Bengali:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tap-highlight-transparent {
+            -webkit-tap-highlight-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc9c1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#19724f",
+                    "on-primary-fixed-variant": "#0e5138",
+                    "surface-container-highest": "#c1ecd4",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#b8e4cc",
+                    "on-secondary-fixed": "#002113",
+                    "secondary-container": "#a0f4c8",
+                    "inverse-primary": "#95d4b3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "surface": "#e8fff0",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#a8e7c5",
+                    "tertiary-fixed-dim": "#ffb780",
+                    "surface-variant": "#c1ecd4",
+                    "background": "#e8fff0",
+                    "outline-variant": "#bfc9c1",
+                    "primary-fixed": "#b1f0ce",
+                    "surface-container-low": "#d1fee5",
+                    "primary-container": "#2d6a4f",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#cffbe2",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container": "#ccf8df",
+                    "inverse-surface": "#0e3727",
+                    "tertiary": "#713900",
+                    "outline": "#707973",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#002114",
+                    "on-surface-variant": "#404943",
+                    "tertiary-fixed": "#ffdcc4",
+                    "secondary": "#0e6c4a",
+                    "surface-bright": "#e8fff0",
+                    "tertiary-container": "#8f4f14",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2c694e",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#002114",
+                    "primary": "#0f5238",
+                    "secondary-fixed": "#a0f4c8",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "surface-container-high": "#c6f2da",
+                    "on-tertiary-container": "#ffd1b1",
+                    "primary-fixed-dim": "#95d4b3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-tablet": "32px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "xl": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Noto Sans Bengali"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Noto Sans Bengali"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md">potted_plant</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">RiceGuard</h1>
+</div>
+<button class="bg-surface-container-high px-4 py-1.5 rounded-full text-label-md font-label-md text-primary hover:bg-surface-container-highest transition-colors active:scale-95 duration-100">
+            EN/BN
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-margin-mobile max-w-[720px] mx-auto">
+<!-- Search Section -->
+<section class="mb-lg">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile mb-md text-on-surface">Disease Library / রোগ লাইব্রেরি</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-lowest border-none rounded-xl shadow-sm focus:ring-2 focus:ring-secondary transition-all outline-none text-body-md" placeholder="Search disease... / রোগ খুঁজুন..." type="text"/>
+</div>
+</section>
+<!-- Bento Grid of Diseases -->
+<div class="grid grid-cols-2 gap-base">
+<!-- Disease Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col" onclick="toggleDetails('tungro')">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A macro shot of a rice plant leaf showing symptoms of Rice Tungro disease, characterized by orange-yellow discoloration and stunting. The lighting is bright and clear, emphasizing the tactile texture of the infected plant tissue against a soft green agricultural background. The visual style is crisp and documentary-like, maintaining a modern and trustworthy scientific aesthetic consistent with the Digital Agronomy theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6vNAylJxPp5QfhL3EOPJZSZCF0z60GNC1MweQ_yK3k8bXxdbD7B5xhImJHurTz10GYwnm2FVAxjqzr3THId9mn3nwaX61QrQUU8GLPtZhIsyUwy62TIQYr6z9KwbujQW2IuJTL6P0uVhtRxna6j89ipbLO03JRX9jUuI-eU-jkZUcv22G1uPTg5xRr-Hy9uq-SKhTaayL8R_d9nE2nMZX1-PAuWz7WKHizBZPDSTgB6mxjP1G2PH6Bsxoy7F_kDB9z_Px1_VSQTw"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#F4A261] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Medium</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">Rice Tungro</h3>
+<p class="text-label-sm font-label-sm text-outline">রাইস টুংরো</p>
+</div>
+</div>
+<!-- Disease Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col" onclick="toggleDetails('blight')">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Detailed close-up of bacterial leaf blight on a rice leaf, showing linear water-soaked lesions that turn yellow and straw-colored. The image is captured in natural daylight, highlighting the precision of the disease's progression along the leaf veins. The atmosphere is professional and diagnostic, utilizing a lush green and earthy color palette that reinforces the brand's expertise in crop monitoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFwLiBJbZBnq5i5vCVVxdLDxtEKNIcokwaVTb-X1PoFpVtLWj9iQPSfdQuQYjKsr2Lc8AKU5bvSqOdACaeBio78T7ySKB0yhOaSZdakvQBTP1KYFSfEDTk_jx_IPEIY8XOk4LpREZVDrz-WcVUBe8balazkeIBW2DtiNYTDwopb4Np1LlqlfhrQZ4nDFzhLDAYfHLbwsV0NUN6Xnxa7fNI_cVbhxfXufaFDnucEZsUCKxx1-sypLOfiGbRtiUxTs6DbthPwsVPTqM"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#E76F51] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">High</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">Leaf Blight</h3>
+<p class="text-label-sm font-label-sm text-outline">পাতা ব্লাইট</p>
+</div>
+</div>
+<!-- Disease Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Microscopic view of rice blast disease showing spindle-shaped spots with gray centers on a vibrant green rice leaf. The lighting is high-contrast and sharp, ensuring every detail of the fungal infection is visible for educational purposes. The aesthetic is modern and clinical, using the brand's primary green tones to provide a familiar yet precise visual experience for farmers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDesEb74EmJX6LQ2a4OfgR3-Nvk0YOsN6xTN42fBC5aNlo3ckEODWvKCtFA9gmn6TxIfBJYJuZu3F3CVyAQwUizEz9lg5sEUZi8Wrm4d-VWBRpX0oY6Vigo9eDYqczwPYruBUg8Tj5jbtY0kTSwpS5VpvhCIU_dY01PS4COtv7V2SkuAB8abqfiGBn1I8Cl5PYvupvF4BsKFxqzxap62uTz3iVXROb4g7Lovam0C4nyYJOHUhyCwVcyb_GFnsefbNEXqo1wGgcNtRc"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#F4A261] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Medium</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">Rice Blast</h3>
+<p class="text-label-sm font-label-sm text-outline">ধানের ব্লাস্ট</p>
+</div>
+</div>
+<!-- Disease Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Clear visualization of brown spot disease on rice foliage, featuring small oval dark brown lesions scattered across the leaf surface. The image is bathed in soft, diffused afternoon sunlight, creating a tactile and organic feel. The composition is structured and clean, following an 8px grid alignment that conveys precision and technological reliability in crop health diagnosis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCn5gZdblxi9NDpK1vSI_HJ-c7bap6HGWnKP-A7lsotY0QOtY11-1b3im7OeYLhSu299WNDmBjNI9t_BzYux34E0aT34d1ZSLWLRQWIJy4dXLvPwBx4U4ffGr7pLGKoG-SGZoBtzbOsstcf8KCbTr3Ul47fJcIofM8HRou9IRdiNZ_o23DZF0_dH0QAflWMpSBh6I9CtK6k1UMAxt8v80zE39mdx-3xtNdejM5SQ9tY000TFUveIiQmbwe3gcYGUa1F4urXYREvxg"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#74C69D] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Low</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">Brown Spot</h3>
+<p class="text-label-sm font-label-sm text-outline">বাদামী দাগ</p>
+</div>
+</div>
+<!-- Disease Card 5 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Close up of sheath blight showing large, irregular, gray-white lesions with black borders on the leaf sheath of a rice plant. The visual style is high-key and modern, using professional-grade macro photography to emphasize the expert diagnostic nature of the app. The color palette is dominated by verdant greens and earthy browns, reinforcing the brand's grounding in digital agronomy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR772PFkAciAgKEmsRbrSl3LjpsJ7KzjzijgTERLmKQCU5pV_khooG5znQjRXHFc1E5L9-CwmkWzkXx3kHQLd8bsSiZ1bJ7_qxVZD4AuwG9x8RexJngNyFEP3SELwTuv3AFlUwuYYtYPL40S8eP2CVlFmjAPauLdtezt-raugmGTC6BpaXdK5J2rw_HhA14RUjlVly1aT_LHDOiZADh8m7mX1bxY_s-tXUEp_KTfT_6Y0qATCeVWM2a1CI5NXf4X-zPImjTIqZvoo"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#E76F51] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">High</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">Sheath Blight</h3>
+<p class="text-label-sm font-label-sm text-outline">শীথ ব্লাইট</p>
+</div>
+</div>
+<!-- Disease Card 6 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer flex flex-col">
+<div class="h-32 w-full overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A focused image of a rice grain showing signs of False Smut, with visible orange fungal masses replacing the grains. The lighting is crisp and detailed, showcasing the tactile texture of the infection in a clear, laboratory-style presentation. The mood is expert and trustworthy, perfectly aligning with the corporate yet approachable personality of the RiceGuard brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUDIluCAm5iAD9YtjlFD7AVDzOETTyxvDZyiAZtTgOLDKj_K3qYgQK_XZ1pufLDG129Vc2I_mb7csqHJN1MtVomcTzSBrocE9spR561KApdrizueVRNDhCpvHuUGw69zy9FAm-4AeKfIvDu2CYdB-W-cRGEIUJkVxnxiYejKSMB6fJpnCu1UJ6XwaGevlt9auwCz8Z4AI56OxgmfxiH1G_MWKJQMoqIbf3ZOT9WI61jMvKTIYY_nrUzAmsDNykxLwFrXNQCWJ1bnc"/>
+<div class="absolute top-2 right-2">
+<span class="bg-[#F4A261] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Medium</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-bold text-on-surface leading-tight">False Smut</h3>
+<p class="text-label-sm font-label-sm text-outline">ফলস স্মার্ট</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Detail Modal (Overlay) -->
+<div class="fixed inset-0 z-[100] hidden flex flex-col bg-surface overflow-y-auto" id="detailModal">
+<header class="sticky top-0 w-full h-16 bg-surface flex items-center justify-between px-margin-mobile z-10">
+<button class="material-symbols-outlined text-on-surface w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors active:scale-90" onclick="toggleDetails()">arrow_back</button>
+<h2 class="text-headline-md font-headline-md" id="modalTitle">Disease Detail</h2>
+<button class="material-symbols-outlined text-on-surface w-10 h-10 flex items-center justify-center">share</button>
+</header>
+<div class="px-margin-mobile pb-margin-mobile">
+<div class="w-full aspect-video rounded-xl overflow-hidden shadow-sm mb-lg">
+<img class="w-full h-full object-cover" data-alt="A detailed hero image for a disease entry, showing healthy and infected rice plants side-by-side for comparison. The scene is brightly lit with warm, morning sunlight, creating a high-contrast and instructional environment. The visual style is modern, utilizing a shallow depth of field to keep the focus purely on the plant's pathology, consistent with the app's mission of precision and growth." id="modalImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoWdZpZZF2HN4vFzOrR8Tb4B0WeE9cpMX1ex7f6rsGFL9mnCYcTtsB76XyDtPz-C0p11vNExcPUU3edssv23URdEN08uM1oHzfaGH9NAb4g2Q2IniSfjLZdi-PCI3OLvXg806ASrdLpb8_sMPmax4gRnQN8yQxei9u_g4dmzePtJlITRrSFwuZxvMBpEKHlMMA431nZq8DcRoX_osbVnBaQFKytG4BPMyKIg7HWBWeldDWXconWmPCSY4p6nYVOEEr-CkMtVNTUUw"/>
+</div>
+<div class="flex flex-col gap-lg">
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant">
+<button class="flex-1 py-3 text-primary border-b-2 border-primary font-bold text-label-md">Overview</button>
+<button class="flex-1 py-3 text-outline font-medium text-label-md">Treatment</button>
+<button class="flex-1 py-3 text-outline font-medium text-label-md">Q&amp;A</button>
+</div>
+<div class="space-y-md">
+<section>
+<h4 class="text-headline-md font-headline-md text-primary mb-2">Symptoms / লক্ষণ</h4>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                            Leaves turn orange-yellow and show stunting. The growth of the plant is significantly slowed. / পাতা কমলা-হলুদ হয়ে যায় এবং গাছের বৃদ্ধি উল্লেখযোগ্যভাবে কমে যায়।
+                        </p>
+</section>
+<section class="p-md bg-surface-container-low rounded-xl">
+<h4 class="text-headline-md font-headline-md text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">verified</span>
+                            Quick Treatment
+                        </h4>
+<ul class="list-disc list-inside text-body-md text-on-surface-variant space-y-1">
+<li>Apply recommended insecticide.</li>
+<li>Destroy infected host plants.</li>
+<li>Plant resistant varieties next season.</li>
+</ul>
+</section>
+<section>
+<h4 class="text-headline-md font-headline-md text-primary mb-2">Community Insights</h4>
+<div class="bg-surface-container rounded-xl p-md">
+<div class="flex gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">MK</div>
+<div>
+<p class="font-bold text-sm">Mubashir K.</p>
+<p class="text-xs text-outline">Verified Farmer • 2 days ago</p>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant italic">"Using Neem oil early in the season helped control the vectors in my field."</p>
+</div>
+</section>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-bold text-body-lg active:scale-95 transition-transform">
+                    Start Camera Scan
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">document_scanner</span>
+<span class="text-label-sm font-label-sm-mobile">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-label-sm font-label-sm-mobile">History</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="text-label-sm font-label-sm-mobile">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-label-sm font-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleDetails(type) {
+            const modal = document.getElementById('detailModal');
+            const title = document.getElementById('modalTitle');
+            const img = document.getElementById('modalImg');
+
+            if (type === 'tungro') {
+                title.innerText = 'Rice Tungro';
+                img.src = 'https://images.unsplash.com/photo-1599403433550-9852f8664f3c?auto=format&fit=crop&q=80&w=800';
+            } else if (type === 'blight') {
+                title.innerText = 'Bacterial Leaf Blight';
+                img.src = 'https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?auto=format&fit=crop&q=80&w=800';
+            }
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body></html>

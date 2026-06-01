@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body overflow-x-hidden min-h-screen selection:bg-secondary-container;
+  }
+}
+
+/* Material Symbols Integration helper class */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Onboarding Horizontal Scroll Carousel styling */
+.carousel-container {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+.carousel-slide {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+}
+
+/* Ambient swaying paddy breeze overlay */
+.paddy-breeze-flow {
+  background: linear-gradient(135deg, rgba(45,106,79,0.01) 0%, rgba(116,198,157,0.03) 50%, rgba(45,106,79,0.01) 100%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Scanning glowing overlay sweep */
+@keyframes scan-line {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan-line 3s infinite linear;
+}
+
+/* Pulsing camera scan border */
+@keyframes pulse-border {
+  0% { border-color: #74C69D; box-shadow: 0 0 0 0 rgba(116, 198, 157, 0.4); }
+  70% { border-color: #2D6A4F; box-shadow: 0 0 0 15px rgba(116, 198, 157, 0); }
+  100% { border-color: #74C69D; box-shadow: 0 0 0 0 rgba(116, 198, 157, 0); }
+}
+
+.pulsing-border {
+  animation: pulse-border 2s infinite ease-in-out;
+}
+
+/* Glowing red diagnostic heatmap */
+.heatmap-overlay {
+  background: radial-gradient(circle at 40% 50%, rgba(231, 111, 81, 0.4) 0%, transparent 40%),
+              radial-gradient(circle at 60% 30%, rgba(231, 111, 81, 0.3) 0%, transparent 35%),
+              radial-gradient(circle at 20% 70%, rgba(231, 111, 81, 0.5) 0%, transparent 30%);
+  mix-blend-mode: multiply;
+}
+
+/* Hide default webkit scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Admin Glassmorphism card elements */
+.glass-card {
+  background: rgba(45, 106, 79, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(149, 212, 179, 0.1);
+}
+
+.chart-grid {
+  background-image: radial-gradient(circle, rgba(149, 212, 179, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

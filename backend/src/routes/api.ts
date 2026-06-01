@@ -9,7 +9,10 @@ import { AdminController } from '../controllers/admin.controller';
 const router = Router();
 
 // Configure Multer storage to write uploaded images to backend/uploads/
-const uploadDir = path.resolve(__dirname, '../../uploads');
+const uploadDir = process.env.VERCEL === '1'
+  ? '/tmp/uploads'
+  : path.resolve(__dirname, '../../uploads');
+
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }

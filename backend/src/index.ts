@@ -20,7 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Ensure upload directories exist and serve uploads folder statically
-const uploadsPath = path.resolve(__dirname, '../uploads');
+const uploadsPath = process.env.VERCEL === '1'
+  ? '/tmp/uploads'
+  : path.resolve(__dirname, '../uploads');
+
 if (!fs.existsSync(uploadsPath)) {
   fs.mkdirSync(uploadsPath, { recursive: true });
 }

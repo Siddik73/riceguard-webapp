@@ -2,7 +2,30 @@ import { PrismaClient } from '@prisma/client';
 import path from 'path';
 import fs from 'fs';
 
-const dbPath = path.join(process.cwd(), 'prisma/dev.db');
+// Find the best database file path in a serverless or local environment
+let dbPath = '';
+const candidatePaths = [
+  path.join(process.cwd(), 'prisma/dev.db'),
+  path.join(process.cwd(), 'backend/prisma/dev.db'),
+  path.resolve(__dirname, '../../prisma/dev.db'),
+  path.resolve(__dirname, '../../../prisma/dev.db'),
+  path.resolve(__dirname, '../prisma/dev.db')
+];
+
+for (const candidate of candidatePaths) {
+  if (fs.existsSync(candidate)) {
+    dbPath = candidate;
+    console.log(`[Prisma Database]: Found SQLite database at candidate path: ${dbPath}`);
+    break;
+  }
+}
+
+if (!dbPath) {
+  // Fallback if none exists (will create new database file)
+  dbPath = path.join(process.cwd(), 'prisma/dev.db');
+  console.warn(`[Prisma Database]: Could not find SQLite database in candidate paths. Defaulting to: ${dbPath}`);
+}
+
 const tempDbPath = '/tmp/dev.db';
 
 // If no DATABASE_URL is defined (e.g. on Vercel), point to the SQLite database

@@ -43,6 +43,7 @@ Thumbs.db
 
 # Local databases & logs
 *.db
+!backend/prisma/dev.db
 *.db-journal
 *.sqlite
 *.sqlite3

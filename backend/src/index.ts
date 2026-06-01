@@ -51,13 +51,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 
 // Bootstrap Server
 const port = config.port;
-app.listen(port, async () => {
-  console.log(`=========================================`);
-  console.log(`🍚 RiceGuard Backend Server running on port ${port}`);
-  console.log(`🛠️ Mode: ${config.nodeEnv}`);
-  console.log(`🧠 ML Core: ${config.mlServiceType}`);
-  console.log(`=========================================`);
 
+const bootstrap = async () => {
   try {
     // Seed disease library and model registry on boot if empty
     const libraryService = new DiseaseLibraryService();
@@ -69,4 +64,20 @@ app.listen(port, async () => {
     console.error('Failed to run boot database seeding:', seedError);
     captureError(seedError);
   }
-});
+};
+
+if (process.env.VERCEL !== '1') {
+  app.listen(port, async () => {
+    console.log(`=========================================`);
+    console.log(`🍚 RiceGuard Backend Server running on port ${port}`);
+    console.log(`🛠️ Mode: ${config.nodeEnv}`);
+    console.log(`🧠 ML Core: ${config.mlServiceType}`);
+    console.log(`=========================================`);
+    await bootstrap();
+  });
+} else {
+  // On Vercel, initialize database in background
+  bootstrap();
+}
+
+export default app;
